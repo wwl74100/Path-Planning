@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="GBK" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
+<record>
+  <date>2018-03-21T19:58:42</date>
+  <millis>1521633522731</millis>
+  <sequence>0</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>nsgaii.Test</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10ms</message>
+</record>
+<record>
+  <date>2018-03-21T19:58:42</date>
+  <millis>1521633522769</millis>
+  <sequence>1</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>nsgaii.Test</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file VAR</message>
+</record>
+<record>
+  <date>2018-03-21T19:58:42</date>
+  <millis>1521633522774</millis>
+  <sequence>2</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>nsgaii.Test</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file FUN</message>
+</record>
 </log>

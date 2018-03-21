@@ -40,12 +40,30 @@ public class DataHandler {
 	/**
 	 *  Store the map info as a vector
 	 */
-	public char[] mMapVector;
+	private char[] mMapVector;
 	
 	/**
 	 *  Store the map info as a matrix
 	 */
-	public char[][] mMapMatrix;
+	private char[][] mMapMatrix;
+	
+	/**
+	 * Store the start point of the agent
+	 */
+	private int mStartPoint;
+	
+	/**
+	 * Store the target point of the agent
+	 */
+	private int mTargetPoint;
+	
+	/**
+	 * Constructor
+	 * @param fileName: Name of the map file
+	 */
+	public DataHandler(String fileName) {
+		readMapFile(fileName);
+	}
 	
 	/**
 	 *  print the map vector and the map matrix
@@ -69,7 +87,7 @@ public class DataHandler {
 	 *  read map info from a file
 	 *  @param fileName: the name of the map file
 	 */
-	public void readMapFile(String fileName) {
+	private void readMapFile(String fileName) {
 		File file = new File(fileName);  
         BufferedReader reader = null;
         
@@ -98,6 +116,14 @@ public class DataHandler {
                 	if((tempString.charAt(len) >= '0') && (tempString.charAt(len) <= '9')) {
                 		mMapMatrix[row][column] = tempString.charAt(len);
                 		mMapVector[row * mMapColumn + column] = tempString.charAt(len);
+                		if(tempString.charAt(len) == '8') {
+                			mStartPoint = row * mMapColumn + column;
+                			//System.out.println(mStartPoint);
+                		}
+                		if(tempString.charAt(len) == '9') {
+                			mTargetPoint = row * mMapColumn + column;
+                			//System.out.println(mTargetPoint);
+                		}               			
                 		-- column;
                 	}
                 	-- len;
@@ -109,9 +135,61 @@ public class DataHandler {
         	e.printStackTrace();
         }  
 	}
-	
-	public static void main(String[] args) {
-		DataHandler dataHandler = new DataHandler();
-		dataHandler.readMapFile("map/map0.txt");
+
+	/**
+	 * get map size
+	 * @return: size of map
+	 */
+	public int getMapSize() {
+		return mMapSize;
 	}
+
+	/**
+	 * get map row number
+	 * @return: map row number
+	 */
+	public int getMapRow() {
+		return mMapRow;
+	}
+
+	/**
+	 * get map column number
+	 * @return: map column number
+	 */
+	public int getMapColumn() {
+		return mMapColumn;
+	}
+
+	/**
+	 * get map info as a vector
+	 * @return: map info vector
+	 */
+	public char[] getMapVector() {
+		return mMapVector;
+	}
+
+	/**
+	 * get map info as a matrix
+	 * @return: map info matrix
+	 */
+	public char[][] getMapMatrix() {
+		return mMapMatrix;
+	}
+
+	/** 
+	 * get start point of the agent
+	 * @return: start point
+	 */
+	public int getStartPoint() {
+		return mStartPoint;
+	}
+
+	/**
+	 * get target point of the agent 
+	 * @return: target point
+	 */
+	public int getTargetPoint() {
+		return mTargetPoint;
+	}
+
 }
