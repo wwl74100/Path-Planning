@@ -15,7 +15,7 @@ import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.util.JMException;
 
-public class NSGAII_Settings extends Settings {
+public class NSGAII_PathPlanning_Settings extends Settings {
 	public int populationSize_                 ;
 	public int maxEvaluations_                 ;
 	public double mutationProbability_         ;
@@ -23,7 +23,7 @@ public class NSGAII_Settings extends Settings {
 	public double mutationDistributionIndex_   ;
 	public double crossoverDistributionIndex_  ;
 
-	public NSGAII_Settings() {
+	public NSGAII_PathPlanning_Settings() {
 		super();
 		
 	    // Default experiments.settings

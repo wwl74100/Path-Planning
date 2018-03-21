@@ -13,7 +13,6 @@ import jmetal.util.wrapper.XInt;
  * @author X.K.T
  *
  */
-
 public class NSGAII_PathPlanning_Problem extends Problem {
 	
 	/**
