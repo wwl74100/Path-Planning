@@ -133,7 +133,8 @@ public class DataHandler {
             reader.close();
         } catch(Exception e) {
         	e.printStackTrace();
-        }  
+        } 
+        printMap();
 	}
 
 	/**

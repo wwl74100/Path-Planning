@@ -29,15 +29,16 @@ public class Test {
 	    //NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings();
 	    //Algorithm algorithm = settings.configure();
 	    
-	    System.out.println(5.5 / 3);
+	    System.out.println(Math.atan(1));
 	    
 	    // Execute the Algorithm
 	    long initTime = System.currentTimeMillis();
 	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map0.txt");
 	    System.out.println(problem_.getMapStartPoint());
 	    System.out.println(problem_.getMapTargetPoint());
+	    System.out.println(problem_.getSafetyOfSeg(0, 0, 2, 6));
 	    
-	    SolutionSet population = new SolutionSet(5);
+	    SolutionSet population = new SolutionSet(1);
 	    Solution newSolution;
 	    for (int i = 0; i < 5; i++) {
 	      newSolution = new Solution(problem_);
