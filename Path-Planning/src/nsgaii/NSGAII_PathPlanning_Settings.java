@@ -8,9 +8,7 @@ import jmetal.core.Algorithm;
 import jmetal.experiments.Settings;
 import jmetal.metaheuristics.nsgaII.NSGAII;
 import jmetal.operators.crossover.Crossover;
-import jmetal.operators.crossover.CrossoverFactory;
 import jmetal.operators.mutation.Mutation;
-import jmetal.operators.mutation.MutationFactory;
 import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.util.JMException;
@@ -40,12 +38,13 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 		Selection selection ;
 		Crossover crossover ;
 		Mutation  mutation  ;
+		NSGAII_PathPlanning_Modification modification;
 
 	    HashMap  parameters ; // Operator parameters
 
 	    // Creating the algorithm. There are two choices: NSGAII and its steady-
 	    // state variant ssNSGAII
-	    algorithm = new NSGAII(problem_) ;
+	    algorithm = new NSGAII_PathPlanning(problem_) ;
 
 	    // Algorithm parameters
 	    algorithm.setInputParameter("populationSize", populationSize_);
@@ -55,13 +54,19 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	    parameters = new HashMap() ;
 	    parameters.put("probability", crossoverProbability_) ;
 	    parameters.put("distributionIndex", crossoverDistributionIndex_) ;
-	    crossover = CrossoverFactory.getCrossoverOperator("SBXCrossover", parameters);
+	    crossover = new NSGAII_PathPlanning_SinglePointCrossover(parameters);
 
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
-	    mutation = MutationFactory.getMutationOperator("PolynomialMutation", parameters);
+	    mutation = new NSGAII_PathPlanning_SinglePointMutation(parameters);
 
+	    //modification
+	    parameters = new HashMap() ;
+	    parameters.put("probability", mutationProbability_) ;
+	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
+	    modification = new NSGAII_PathPlanning_Modification(parameters);
+	    
 	    // Selection Operator
 	    parameters = null ;
 	    selection = SelectionFactory.getSelectionOperator("BinaryTournament2", parameters) ;
@@ -70,6 +75,7 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	    algorithm.addOperator("crossover",crossover);
 	    algorithm.addOperator("mutation",mutation);
 	    algorithm.addOperator("selection",selection);
+	    algorithm.addOperator("modification", modification);
 
 	    return algorithm ;
 	}

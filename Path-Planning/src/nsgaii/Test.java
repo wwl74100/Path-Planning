@@ -2,7 +2,6 @@
 
 package nsgaii;
 
-import jmetal.core.Algorithm;
 import jmetal.core.Solution;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;

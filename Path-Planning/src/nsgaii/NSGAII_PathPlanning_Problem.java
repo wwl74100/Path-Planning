@@ -204,6 +204,8 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 	 * @return: segment safety
 	 */
 	public double getSafetyOfSeg(int x1, int y1, int x2, int y2) {
+		if(checkSegInObstacle(x1, y1, x2, y2) == true) return 0;
+		
 		int maxX = Math.max(x1, x2), minX = Math.min(x1, x2);
 		int maxY = Math.max(y1, y2), minY = Math.min(y1, y2);
 		double dx1 = x1 + 0.5, dx2 = x2 + 0.5, dy1 = y1 + 0.5, dy2 = y2 + 0.5;
@@ -211,11 +213,6 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 		
 		//if the x coordinates are the same
 		if(minX == maxX) {
-			//if the segment is in an obstacle
-			for(int i = minY; i <= maxY; ++ i) {
-				if(mapMatrix_[i][minX] == '1') return 0;
-			}
-			
 			//if the segment is not in an obstacle
 			for(int i = 0; i < mapRow_; ++ i) {
 				for(int j = 0; j < mapColumn_; ++ j) {
@@ -238,11 +235,6 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 	
 		//if the y coordinates are the same
 		if(minY == maxY) {
-			//if the segment is in an obstacle
-			for(int i = minX; i <= maxX; ++ i) {
-				if(mapMatrix_[minY][i] == '1') return 0;
-			}
-			
 			//if the segment is not in an obstacle
 			for(int i = 0; i < mapRow_; ++ i) {
 				for(int j = 0; j < mapColumn_; ++ j) {
@@ -266,57 +258,6 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 		//if the x coordinates and the y coordinates are not the same
 		k = (dy1 - dy2) / (dx1 - dx2);
 		b = (dx1 * dy2 - dx2 * dy1) / (dx1 - dx2);
-		for(int i = minX + 1; i <= maxX; ++ i) {
-			double temp = k * i + b;
-			if(temp == Math.floor(temp)) {
-				temp = Math.floor(temp);
-				if(k > 0) {
-					if((mapMatrix_[(int)temp][i] == '1') 
-							|| (mapMatrix_[(int)temp - 1][i - 1] == '1')) {
-						return 0;	
-					}
-				}
-				else {
-					if((mapMatrix_[(int)temp][i - 1] == '1') 
-							|| (mapMatrix_[(int)temp - 1][i] == '1')) {
-						return 0;	
-					}
-				}
-			}
-			else {
-				temp = Math.floor(temp);
-				if((mapMatrix_[(int)temp][i] == '1') 
-					|| (mapMatrix_[(int)temp][i - 1] == '1')) {
-					return 0;
-				}
-			}
-		}
-		
-		for(int i = minY + 1; i <= maxY; ++ i) {
-			double temp = (i - b) / k;
-			if(temp == Math.floor(temp)) {
-				temp = Math.floor(temp);
-				if(k > 0) {
-					if((mapMatrix_[i][(int)temp] == '1') 
-							|| (mapMatrix_[i - 1][(int)temp - 1] == '1')) {
-						return 0;	
-					}
-				}
-				else {
-					if((mapMatrix_[i - 1][(int)temp] == '1') 
-							|| (mapMatrix_[i][(int)temp - 1] == '1')) {
-						return 0;	
-					}
-				}
-			}
-			else {
-				temp = Math.floor(temp);
-				if((mapMatrix_[i][(int)temp] == '1') 
-					|| (mapMatrix_[i - 1][(int)temp] == '1')) {
-					return 0;
-				}
-			}
-		}
 		
 		double b1 = Math.max(dx1 / k + dy1, dx2 / k + dy2);
 		double b2 = Math.min(dx1 / k + dy1, dx2 / k + dy2);
@@ -339,11 +280,98 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 		return segSafety;
 	}
 	
+	public boolean checkSegInObstacle(int x1, int y1, int x2, int y2) {
+		int maxX = Math.max(x1, x2), minX = Math.min(x1, x2);
+		int maxY = Math.max(y1, y2), minY = Math.min(y1, y2);
+		double dx1 = x1 + 0.5, dx2 = x2 + 0.5, dy1 = y1 + 0.5, dy2 = y2 + 0.5;
+		double k, b;
+		
+		//if the x coordinates are the same
+		if(minX == maxX) {
+			//if the segment is in an obstacle
+			for(int i = minY; i <= maxY; ++ i) {
+				if(mapMatrix_[i][minX] == '1') return true;
+			}
+		}
+	
+		//if the y coordinates are the same
+		if(minY == maxY) {
+			//if the segment is in an obstacle
+			for(int i = minX; i <= maxX; ++ i) {
+				if(mapMatrix_[minY][i] == '1') return true;
+			}
+		}
+		
+		//if the x coordinates and the y coordinates are not the same
+		k = (dy1 - dy2) / (dx1 - dx2);
+		b = (dx1 * dy2 - dx2 * dy1) / (dx1 - dx2);
+		for(int i = minX + 1; i <= maxX; ++ i) {
+			double temp = k * i + b;
+			if(temp == Math.floor(temp)) {
+				temp = Math.floor(temp);
+				if(k > 0) {
+					if((mapMatrix_[(int)temp][i] == '1') 
+							|| (mapMatrix_[(int)temp - 1][i - 1] == '1')) {
+						return true;	
+					}
+				}
+				else {
+					if((mapMatrix_[(int)temp][i - 1] == '1') 
+							|| (mapMatrix_[(int)temp - 1][i] == '1')) {
+						return true;	
+					}
+				}
+			}
+			else {
+				temp = Math.floor(temp);
+				if((mapMatrix_[(int)temp][i] == '1') 
+					|| (mapMatrix_[(int)temp][i - 1] == '1')) {
+					return true;
+				}
+			}
+		}
+		
+		for(int i = minY + 1; i <= maxY; ++ i) {
+			double temp = (i - b) / k;
+			if(temp == Math.floor(temp)) {
+				temp = Math.floor(temp);
+				if(k > 0) {
+					if((mapMatrix_[i][(int)temp] == '1') 
+							|| (mapMatrix_[i - 1][(int)temp - 1] == '1')) {
+						return true;	
+					}
+				}
+				else {
+					if((mapMatrix_[i - 1][(int)temp] == '1') 
+							|| (mapMatrix_[i][(int)temp - 1] == '1')) {
+						return true;	
+					}
+				}
+			}
+			else {
+				temp = Math.floor(temp);
+				if((mapMatrix_[i][(int)temp] == '1') 
+					|| (mapMatrix_[i - 1][(int)temp] == '1')) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public int getMapStartPoint() {
 		return mapStartPoint_;
 	}
 
 	public int getMapTargetPoint() {
 		return mapTargetPoint_;
+	}
+	
+	public int getMapSize() {
+		return mapSize_;
+	}
+	
+	public int getMapColumn() {
+		return mapColumn_;
 	}
 }
