@@ -21,9 +21,9 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	public double mutationDistributionIndex_   ;
 	public double crossoverDistributionIndex_  ;
 
-	public NSGAII_PathPlanning_Settings() {
+	public NSGAII_PathPlanning_Settings(String fileName) {
 		super();
-		
+		problem_ = new NSGAII_PathPlanning_Problem(fileName);
 	    // Default experiments.settings
 	    populationSize_              = 100   ;
 	    maxEvaluations_              = 25000 ;

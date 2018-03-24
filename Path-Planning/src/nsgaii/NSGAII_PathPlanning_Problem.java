@@ -83,9 +83,9 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 		f[1] = getPathAngle(gen, x, y);
 		f[2] = getPathSafety(gen, x, y);
 		
-		solution.setObjective(0, f[0]);
-		solution.setObjective(1, f[1]);
-		solution.setObjective(2, f[2]);
+		solution.setObjective(0, f[2]);
+		solution.setObjective(1, f[0]);
+		solution.setObjective(2, f[1]);
 	} 
 	
 	/**
@@ -160,16 +160,17 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 				return pathSafety;
 			}
 			
-			safetyThis = getSafetyOfSeg((int)x[i - 1], (int)y[i - 1], (int)x[i], (int)y[i]);
-			if(safetyThis == 0) {
-				return 0;
+			if(checkSegInObstacle((int)x[i - 1], (int)y[i - 1], (int)x[i], (int)y[i]) == true) {
+				return Double.MAX_VALUE;
 			}
-			pathSafety += Math.max(safetyLast, safetyThis) * countLast + safetyThis;
+			safetyThis = getSafetyOfSeg((int)x[i - 1], (int)y[i - 1], (int)x[i], (int)y[i]);
+
+			pathSafety += Math.min(safetyLast, safetyThis) * countLast + safetyThis;
 			safetyLast = safetyThis;
 			countLast = countThis;
 		}
 		
-		return pathSafety;
+		return (double)mapSize_ / pathSafety;
 	}
 	
 	/**
@@ -204,8 +205,6 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 	 * @return: segment safety
 	 */
 	public double getSafetyOfSeg(int x1, int y1, int x2, int y2) {
-		if(checkSegInObstacle(x1, y1, x2, y2) == true) return 0;
-		
 		int maxX = Math.max(x1, x2), minX = Math.min(x1, x2);
 		int maxY = Math.max(y1, y2), minY = Math.min(y1, y2);
 		double dx1 = x1 + 0.5, dx2 = x2 + 0.5, dy1 = y1 + 0.5, dy2 = y2 + 0.5;

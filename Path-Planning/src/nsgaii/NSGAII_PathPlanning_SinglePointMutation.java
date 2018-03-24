@@ -3,6 +3,7 @@ package nsgaii;
 import java.util.HashMap;
 
 import jmetal.core.Solution;
+import jmetal.core.Variable;
 import jmetal.operators.mutation.Mutation;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
@@ -34,11 +35,16 @@ public class NSGAII_PathPlanning_SinglePointMutation extends Mutation {
 	 * @throws JMException 
 	 */
 	public void doMutation(double probability, Solution solution) throws JMException {
+		Variable[] gen = solution.getDecisionVariables();
 		try {
 			if (PseudoRandom.randDouble() < probability) {
-				int crossoverPoint = PseudoRandom.randInt(0, solution.numberOfVariables() - 1);
+				int crossoverPoint = PseudoRandom.randInt(1, solution.numberOfVariables() - 2);
 				int valueX = PseudoRandom.randInt(0, ((NSGAII_PathPlanning_Problem)(solution.getProblem())).getMapSize() - 1);				
-		        solution.getDecisionVariables()[crossoverPoint].setValue(valueX);
+		        while((gen[crossoverPoint].getValue() == gen[crossoverPoint + 1].getValue())
+		        		&& (crossoverPoint < solution.numberOfVariables() - 2)) {
+		        	++ crossoverPoint;
+		        }
+				solution.getDecisionVariables()[crossoverPoint].setValue(valueX);
 			}
 		} catch (ClassCastException e1) {
 			Configuration.logger_.severe("SinglePointCrossover.doCrossover: Cannot perfom " +

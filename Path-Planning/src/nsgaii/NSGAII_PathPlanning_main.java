@@ -25,7 +25,7 @@ public class NSGAII_PathPlanning_main {
 	    fileHandler_ = new FileHandler("NSGAII_main.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings();
+	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map0.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm
