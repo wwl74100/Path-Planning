@@ -55,7 +55,7 @@ public class Ranking {
    * stores a <code>Comparator</code> for dominance checking
    */
   private static final Comparator dominance_ = new DominanceComparator();
-  
+  //private static final Comparator dominance_ = new NSGAII_PathPlanning_Comaprator();
   /**
    * stores a <code>Comparator</code> for Overal Constraint Violation Comparator
    * checking

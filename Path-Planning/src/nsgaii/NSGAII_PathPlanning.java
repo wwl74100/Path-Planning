@@ -27,6 +27,7 @@ import jmetal.util.Distance;
 import jmetal.util.JMException;
 import jmetal.util.Ranking;
 import jmetal.util.comparators.CrowdingComparator;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Ranking;
 
 /** 
  *  Implementation of NSGA-II.
@@ -131,7 +132,7 @@ public class NSGAII_PathPlanning extends Algorithm {
       union = ((SolutionSet) population).union(offspringPopulation);
 
       // Ranking the union
-      Ranking ranking = new Ranking(union);
+      NSGAII_PathPlanning_Ranking ranking = new NSGAII_PathPlanning_Ranking(union);
 
       int remain = populationSize;
       int index = 0;

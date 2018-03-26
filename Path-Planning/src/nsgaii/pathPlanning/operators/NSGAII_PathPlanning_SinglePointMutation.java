@@ -1,4 +1,4 @@
-package nsgaii;
+package nsgaii.pathPlanning.operators;
 
 import java.util.HashMap;
 
@@ -8,6 +8,7 @@ import jmetal.operators.mutation.Mutation;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 
 public class NSGAII_PathPlanning_SinglePointMutation extends Mutation {
 	private static final double ETA_M_DEFAULT_ = 20.0;

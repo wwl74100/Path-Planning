@@ -1,4 +1,4 @@
-package nsgaii;
+package nsgaii.pathPlanning.solution;
 
 import jmetal.core.Problem;
 import jmetal.core.SolutionType;
@@ -6,6 +6,7 @@ import jmetal.core.Variable;
 import jmetal.encodings.variable.ArrayInt;
 import jmetal.encodings.variable.Int;
 import jmetal.util.JMException;
+import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 
 public class NSGAII_PathPlanning_SolutionType extends SolutionType {
 	

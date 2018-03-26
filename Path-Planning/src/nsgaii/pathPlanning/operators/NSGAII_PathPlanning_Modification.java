@@ -1,4 +1,4 @@
-package nsgaii;
+package nsgaii.pathPlanning.operators;
 
 import java.util.HashMap;
 
@@ -6,6 +6,7 @@ import jmetal.core.Operator;
 import jmetal.core.Solution;
 import jmetal.core.Variable;
 import jmetal.util.JMException;
+import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 
 public class NSGAII_PathPlanning_Modification extends Operator {
 	public NSGAII_PathPlanning_Modification(HashMap<String, Object> parameters) {

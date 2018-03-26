@@ -6,10 +6,15 @@ import jmetal.core.Solution;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
+import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
+import pathPlanningDemo.DemoPainter;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+
+import jdk.internal.org.objectweb.asm.util.CheckAnnotationAdapter;
 
 public class Test {	
 	public static Logger      logger_ ;      // Logger object
@@ -53,5 +58,7 @@ public class Test {
 	    population.printVariablesToFile("VAR");    
 	    logger_.info("Objectives values have been writen to file FUN");
 	    population.printObjectivesToFile("FUN");
+	    
+	    new DemoPainter(problem_, population.best(new NSGAII_PathPlanning_Comparator()));
 	}
 }

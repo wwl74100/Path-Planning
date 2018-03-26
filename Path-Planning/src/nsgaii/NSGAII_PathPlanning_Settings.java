@@ -12,6 +12,10 @@ import jmetal.operators.mutation.Mutation;
 import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.util.JMException;
+import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_Modification;
+import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_SinglePointCrossover;
+import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_SinglePointMutation;
+import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 
 public class NSGAII_PathPlanning_Settings extends Settings {
 	public int populationSize_                 ;
@@ -26,7 +30,7 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 		problem_ = new NSGAII_PathPlanning_Problem(fileName);
 	    // Default experiments.settings
 	    populationSize_              = 100   ;
-	    maxEvaluations_              = 25000 ;
+	    maxEvaluations_              = 100000 ;
 	    mutationProbability_         = 1.0/problem_.getNumberOfVariables() ;
 	    crossoverProbability_        = 0.9   ;
 	    mutationDistributionIndex_   = 20.0  ;

@@ -1,12 +1,13 @@
 // NSGAII_PathPlanning_Problem.java
 
-package nsgaii;
+package nsgaii.pathPlanning.problem;
 
 import dataHandler.DataHandler;
 import jmetal.core.Problem;
 import jmetal.core.Solution;
 import jmetal.core.Variable;
 import jmetal.util.JMException;
+import nsgaii.pathPlanning.solution.NSGAII_PathPlanning_SolutionType;
 
 /**
  * Class representing the Path-Planning problem for NSGA-II
@@ -79,13 +80,14 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 		}
 		
 		double[] f = new double[numberOfObjectives_];
-		f[0] = getPathLength(x, y);
-		f[1] = getPathAngle(gen, x, y);
-		f[2] = getPathSafety(gen, x, y);
 		
-		solution.setObjective(0, f[2]);
-		solution.setObjective(1, f[0]);
-		solution.setObjective(2, f[1]);
+		f[0] = getPathSafety(gen, x, y);
+		f[1] = getPathLength(x, y);
+		f[2] = getPathAngle(gen, x, y);
+		
+		solution.setObjective(0, f[0]);
+		solution.setObjective(1, f[1]);
+		solution.setObjective(2, f[2]);
 	} 
 	
 	/**
@@ -308,17 +310,11 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 			double temp = k * i + b;
 			if(temp == Math.floor(temp)) {
 				temp = Math.floor(temp);
-				if(k > 0) {
-					if((mapMatrix_[(int)temp][i] == '1') 
-							|| (mapMatrix_[(int)temp - 1][i - 1] == '1')) {
-						return true;	
-					}
-				}
-				else {
-					if((mapMatrix_[(int)temp][i - 1] == '1') 
-							|| (mapMatrix_[(int)temp - 1][i] == '1')) {
-						return true;	
-					}
+				if((mapMatrix_[(int)temp][i] == '1') 						
+						|| (mapMatrix_[(int)temp][i - 1] == '1')
+						|| (mapMatrix_[(int)temp - 1][i] == '1')
+						|| (mapMatrix_[(int)temp - 1][i - 1] == '1')) {
+					return true;
 				}
 			}
 			else {
@@ -370,7 +366,15 @@ public class NSGAII_PathPlanning_Problem extends Problem {
 		return mapSize_;
 	}
 	
+	public int getMapRow() {
+		return mapRow_;
+	}
+	
 	public int getMapColumn() {
 		return mapColumn_;
+	}
+	
+	public char[][] getMapMatrix() {
+		return mapMatrix_;
 	}
 }

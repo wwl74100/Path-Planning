@@ -6,6 +6,9 @@ import jmetal.core.Algorithm;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator_Test;
+import pathPlanningDemo.DemoPainter;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -25,7 +28,7 @@ public class NSGAII_PathPlanning_main {
 	    fileHandler_ = new FileHandler("NSGAII_main.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map0.txt");
+	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map2.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm
@@ -39,5 +42,7 @@ public class NSGAII_PathPlanning_main {
 	    population.printVariablesToFile("VAR");    
 	    logger_.info("Objectives values have been writen to file FUN");
 	    population.printObjectivesToFile("FUN");
+	    
+	    new DemoPainter(algorithm.getProblem(), population.best(new NSGAII_PathPlanning_Comparator()));
 	}
 }
