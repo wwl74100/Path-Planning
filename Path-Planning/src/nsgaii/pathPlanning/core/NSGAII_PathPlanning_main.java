@@ -1,6 +1,6 @@
 // NSGAIIPathPlanning_main.java
 
-package nsgaii;
+package nsgaii.pathPlanning.core;
 
 import jmetal.core.Algorithm;
 import jmetal.core.SolutionSet;

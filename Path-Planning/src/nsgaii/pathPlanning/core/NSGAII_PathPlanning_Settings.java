@@ -1,6 +1,6 @@
 // NSGAII_Settings.java
 
-package nsgaii;
+package nsgaii.pathPlanning.core;
 
 import java.util.HashMap;
 
