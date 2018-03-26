@@ -26,6 +26,7 @@ public class Normal_GA_PathPlanning extends Algorithm {
 	    Operator crossoverOperator;
 	    Operator selectionOperator;
 	    Operator modificationOperator;
+	    Operator sortOperator;
 	    
 	    populationSize = ((Integer) getInputParameter("populationSize")).intValue();
 	    maxEvaluations = ((Integer) getInputParameter("maxEvaluations")).intValue();
@@ -40,12 +41,13 @@ public class Normal_GA_PathPlanning extends Algorithm {
 	    crossoverOperator = operators_.get("crossover");
 	    selectionOperator = operators_.get("selection");
 	    modificationOperator = operators_.get("modification");
+	    sortOperator = operators_.get("sort");
 	    
 	    // Create the initial solutionSet
 	    Solution newSolution;
 	    for (int i = 0; i < populationSize; i++) {
 	      newSolution = new Solution(problem_);
-	      modificationOperator.execute(newSolution);
+	      sortOperator.execute(newSolution);
 	      problem_.evaluate(newSolution);
 	      problem_.evaluateConstraints(newSolution);
 	      evaluations++;

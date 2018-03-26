@@ -45,8 +45,5 @@ public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {
 		f[1] = getPathLength(x, y);
 		f[2] = getPathAngle(gen, x, y);
 		
-		solution.setObjective(0, f[0]);
-		solution.setObjective(1, f[1]);
-		solution.setObjective(2, f[2]);
 	} 
 }

@@ -9,11 +9,11 @@ import jmetal.operators.mutation.Mutation;
 import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.util.JMException;
-import nsgaii.pathPlanning.core.NSGAII_PathPlanning;
-import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_Modification;
-import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_SinglePointCrossover;
-import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_SinglePointMutation;
-import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
+import normalGA.pathPlanning.problem.Normal_GA_PathPlanning_Problem;
+import pathPlanning.operators.PathPlanning_Modification;
+import pathPlanning.operators.PathPlanning_SinglePointMutation;
+import pathPlanning.operators.PathPlanning_Sort;
+import pathPlanning.operators.PathPlanning_TwoPointCrossover;
 
 public class Normal_GA_PathPlanning_Settings extends Settings{
 	public int populationSize_                 ;
@@ -25,7 +25,7 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 	
 	public Normal_GA_PathPlanning_Settings(String fileName) {
 		super();
-		problem_ = new NSGAII_PathPlanning_Problem(fileName);
+		problem_ = new Normal_GA_PathPlanning_Problem(fileName);
 	    // Default experiments.settings
 	    populationSize_              = 100   ;
 	    maxEvaluations_              = 200000 ;
@@ -40,7 +40,8 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 		Selection selection ;
 		Crossover crossover ;
 		Mutation  mutation  ;
-		NSGAII_PathPlanning_Modification modification;
+		PathPlanning_Sort sort;
+		PathPlanning_Modification modification;
 
 	    HashMap  parameters ; // Operator parameters
 
@@ -54,18 +55,23 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 	    parameters = new HashMap() ;
 	    parameters.put("probability", crossoverProbability_) ;
 	    parameters.put("distributionIndex", crossoverDistributionIndex_) ;
-	    crossover = new NSGAII_PathPlanning_SinglePointCrossover(parameters);
+	    crossover = new PathPlanning_TwoPointCrossover(parameters);
 
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
-	    mutation = new NSGAII_PathPlanning_SinglePointMutation(parameters);
+	    mutation = new PathPlanning_SinglePointMutation(parameters);
 
 	    //modification
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
-	    modification = new NSGAII_PathPlanning_Modification(parameters);
+	    modification = new PathPlanning_Modification(parameters);
+	    
+	    parameters = new HashMap() ;
+	    parameters.put("probability", mutationProbability_) ;
+	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
+	    sort = new PathPlanning_Sort(parameters);
 	    
 	    // Selection Operator
 	    parameters = null ;
@@ -76,6 +82,7 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 	    algorithm.addOperator("mutation",mutation);
 	    algorithm.addOperator("selection",selection);
 	    algorithm.addOperator("modification", modification);
+	    algorithm.addOperator("sort", sort);
 
 	    return algorithm ;
 	}
