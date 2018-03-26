@@ -1,4 +1,4 @@
-package pathPlanningDemo;
+package pathPlanning.demo;
 
 import java.awt.Color;
 import java.awt.Graphics;

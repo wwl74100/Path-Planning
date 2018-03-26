@@ -134,7 +134,7 @@ public class DataHandler {
         } catch(Exception e) {
         	e.printStackTrace();
         } 
-        printMap();
+        //printMap();
 	}
 
 	/**

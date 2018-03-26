@@ -1,27 +1,24 @@
-package nsgaii.pathPlanning.operators;
+package pathPlanning.operators;
 
 import java.util.HashMap;
 
 import jmetal.core.Solution;
 import jmetal.core.Variable;
+import jmetal.encodings.variable.Int;
 import jmetal.operators.mutation.Mutation;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 
-public class NSGAII_PathPlanning_SinglePointMutation extends Mutation {
+public class PathPlanning_SinglePointMutation extends Mutation {
 	private static final double ETA_M_DEFAULT_ = 20.0;
 	private final double eta_m_=ETA_M_DEFAULT_;
 	
 	private Double mutationProbability_ = null;
 	private Double distributionIndex_ = eta_m_;
-	
-	/**
-	 * Constructor
-	 * Creates a new instance of the polynomial mutation operator
-	 */
-	public NSGAII_PathPlanning_SinglePointMutation(HashMap<String, Object> parameters) {
+
+	public PathPlanning_SinglePointMutation(HashMap<String, Object> parameters) {
 		super(parameters);
 		if (parameters.get("probability") != null)
 	  		mutationProbability_ = (Double) parameters.get("probability") ;  		
@@ -29,31 +26,28 @@ public class NSGAII_PathPlanning_SinglePointMutation extends Mutation {
 	  		distributionIndex_ = (Double) parameters.get("distributionIndex") ;  
 	}
 	
-	/**
-	 * Perform the mutation operation
-	 * @param probability Mutation probability
-	 * @param solution The solution to mutate
-	 * @throws JMException 
-	 */
 	public void doMutation(double probability, Solution solution) throws JMException {
-		Variable[] gen = solution.getDecisionVariables();
 		try {
 			if (PseudoRandom.randDouble() < probability) {
-				int crossoverPoint = PseudoRandom.randInt(1, solution.numberOfVariables() - 2);
-				int valueX = PseudoRandom.randInt(0, ((NSGAII_PathPlanning_Problem)(solution.getProblem())).getMapSize() - 1);				
+				int mutationPoint = PseudoRandom.randInt(1, solution.numberOfVariables() - 2);
+				int ulimit = (int)solution.getDecisionVariables()[0].getValue();
+				int blimit = (int)solution.getDecisionVariables()[solution.numberOfVariables() - 1].getValue();
+				int valueX = PseudoRandom.randInt(blimit + 1, ulimit - 1);				
 		        
-				double temp = gen[crossoverPoint].getValue();
-				int i = crossoverPoint;
-				while((i > 0) && (gen[i].getValue() == temp)) {
-					solution.getDecisionVariables()[i].setValue(valueX);
-					-- i;
+				int flag = 1;
+				while(flag == 1) {
+					for(int i = 1; i < solution.numberOfVariables(); ++ i) {
+						if(valueX == (int)solution.getDecisionVariables()[i].getValue()) {
+							flag = 1;
+							valueX = PseudoRandom.randInt(blimit + 1, ulimit - 1);
+							break;
+						}
+						else {
+							flag = 0;
+						}
+					}	
 				}
-				
-				i = crossoverPoint + 1;
-				while((i < solution.numberOfVariables() - 1) && (gen[i].getValue() == temp)) {
-					solution.getDecisionVariables()[i].setValue(valueX);
-					++ i;
-				}
+				solution.getDecisionVariables()[mutationPoint].setValue(valueX);
 			}
 		} catch (ClassCastException e1) {
 			Configuration.logger_.severe("SinglePointCrossover.doCrossover: Cannot perfom " +
@@ -64,12 +58,6 @@ public class NSGAII_PathPlanning_SinglePointMutation extends Mutation {
 		}
 	}
 	
-	/**
-	 * Executes the operation
-	 * @param object An object containing a solution
-	 * @return An object containing the mutated solution
-	 * @throws JMException 
-	 */  
 	public Object execute(Object object) throws JMException {
 		Solution solution = (Solution)object;
 		doMutation(mutationProbability_, solution);

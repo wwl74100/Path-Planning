@@ -2,34 +2,34 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-03-26T11:43:09</date>
-  <millis>1522035789055</millis>
+  <date>2018-03-26T14:15:10</date>
+  <millis>1522044910895</millis>
   <sequence>0</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
-  <class>nsgaii.NSGAII_PathPlanning_main</class>
+  <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
   <method>main</method>
   <thread>1</thread>
-  <message>Total execution time: 8461ms</message>
+  <message>Total execution time: 16002ms</message>
 </record>
 <record>
-  <date>2018-03-26T11:43:09</date>
-  <millis>1522035789092</millis>
+  <date>2018-03-26T14:15:10</date>
+  <millis>1522044910942</millis>
   <sequence>1</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
-  <class>nsgaii.NSGAII_PathPlanning_main</class>
+  <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
   <method>main</method>
   <thread>1</thread>
   <message>Variables values have been writen to file VAR</message>
 </record>
 <record>
-  <date>2018-03-26T11:43:09</date>
-  <millis>1522035789100</millis>
+  <date>2018-03-26T14:15:10</date>
+  <millis>1522044910951</millis>
   <sequence>2</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
-  <class>nsgaii.NSGAII_PathPlanning_main</class>
+  <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
   <method>main</method>
   <thread>1</thread>
   <message>Objectives values have been writen to file FUN</message>

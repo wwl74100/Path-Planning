@@ -1,55 +1,37 @@
-// Test.java
+package normalGA.pathPlanning.core;
 
-package nsgaii;
-
-import jmetal.core.Solution;
+import jmetal.core.Algorithm;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
-import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 import pathPlanning.demo.DemoPainter;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
-import jdk.internal.org.objectweb.asm.util.CheckAnnotationAdapter;
 
-public class Test {	
+public class Normal_GA_PathPlanning_main {
 	public static Logger      logger_ ;      // Logger object
 	public static FileHandler fileHandler_ ; // FileHandler object	
 	
 	public static void main(String[] args) throws 
-    								JMException, 
-    								SecurityException, 
-    								IOException, 
-    								ClassNotFoundException {
+									JMException, 
+									SecurityException, 
+									IOException, 
+									ClassNotFoundException {
 		// Logger object and file to store log messages
 	    logger_      = Configuration.logger_ ;
 	    fileHandler_ = new FileHandler("NSGAII_main.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    //NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings();
-	    //Algorithm algorithm = settings.configure();
-	    
-	    System.out.println(Math.atan(1));
+	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map3.txt");
+	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm
 	    long initTime = System.currentTimeMillis();
-	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map0.txt");
-	    System.out.println(problem_.getMapStartPoint());
-	    System.out.println(problem_.getMapTargetPoint());
-	    System.out.println(problem_.getSafetyOfSeg(0, 0, 2, 6));
-	    
-	    SolutionSet population = new SolutionSet(1);
-	    Solution newSolution;
-	    for (int i = 0; i < 5; i++) {
-	      newSolution = new Solution(problem_);
-	      problem_.evaluate(newSolution);
-	      problem_.evaluateConstraints(newSolution);
-	      population.add(newSolution);
-	    }
+	    SolutionSet population = algorithm.execute();
 	    long estimatedTime = System.currentTimeMillis() - initTime;
 	    
 	    // Result messages 
@@ -59,6 +41,6 @@ public class Test {
 	    logger_.info("Objectives values have been writen to file FUN");
 	    population.printObjectivesToFile("FUN");
 	    
-	    new DemoPainter(problem_, population.best(new NSGAII_PathPlanning_Comparator()));
+	    new DemoPainter(algorithm.getProblem(), population.best(new NSGAII_PathPlanning_Comparator()));
 	}
 }
