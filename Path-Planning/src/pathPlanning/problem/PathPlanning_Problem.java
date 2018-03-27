@@ -5,7 +5,7 @@ import jmetal.core.Problem;
 import jmetal.core.Solution;
 import jmetal.core.Variable;
 import jmetal.util.JMException;
-import nsgaii.pathPlanning.solution.NSGAII_PathPlanning_SolutionType;
+import pathPlanning.solution.PathPlanning_SolutionType;
 
 public abstract class PathPlanning_Problem extends Problem {
 	protected int mapSize_;         // map size
@@ -46,7 +46,7 @@ public abstract class PathPlanning_Problem extends Problem {
 	    }
 	    
 	    // Solution type is ArrayInt
-	    solutionType_ = new NSGAII_PathPlanning_SolutionType(this);
+	    solutionType_ = new PathPlanning_SolutionType(this);
 	}
 	
 	public abstract void evaluate(Solution solution) throws JMException; 
@@ -62,19 +62,19 @@ public abstract class PathPlanning_Problem extends Problem {
 		return distance;
 	}
 	
-	protected double getPathAngle(Variable[] gen, double[] x, double[] y) {
+	protected double getPathAngle(Variable[] gen, double[] x, double[] y) throws JMException {
 		double pathAngle = 0.0, angle1, angle2;
 		
 		for(int i = 1; i < numberOfVariables_ - 1; ++ i) {
 			//when the start parts of the segment are the same point
-			while((i < numberOfVariables_ - 1) && (gen[i] == gen[i - 1])) {
+			while((i < numberOfVariables_ - 1) && (gen[i].getValue() == gen[i - 1].getValue())) {
 				++ i;
 			}
 			if(i == numberOfVariables_ - 1) return pathAngle;
 			angle1 = getAngleOfVector(x[i - 1] - x[i], y[i - 1] - y[i]);
 			
 			//when the last parts of the segment are the same point
-			while((i < numberOfVariables_ - 1) && (gen[i] == gen[i + 1])) {
+			while((i < numberOfVariables_ - 1) && (gen[i].getValue() == gen[i + 1].getValue())) {
 				++ i;
 			}
 			if(i == numberOfVariables_ - 1) return pathAngle;
@@ -86,13 +86,13 @@ public abstract class PathPlanning_Problem extends Problem {
 		return pathAngle;
 	}
 	
-	protected double getPathSafety(Variable gen[], double[] x, double[] y) {
+	protected double getPathSafety(Variable gen[], double[] x, double[] y) throws JMException {
 		double pathSafety = 0.0, safetyLast = 0, safetyThis = 0;
 		int countLast = 0, countThis = 0;
 		
 		for(int i = 1; i < numberOfVariables_; ++ i) {
 			countThis = 0;
-			while((i < numberOfVariables_) && (gen[i] == gen[i - 1])) {
+			while((i < numberOfVariables_) && (gen[i].getValue() == gen[i - 1].getValue())) {
 				++ countThis;
 				++ i;
 			}
@@ -109,7 +109,7 @@ public abstract class PathPlanning_Problem extends Problem {
 			}
 			safetyThis = getSafetyOfSeg((int)x[i - 1], (int)y[i - 1], (int)x[i], (int)y[i]);
 
-			pathSafety += Math.min(safetyLast, safetyThis) * countLast + safetyThis;
+			pathSafety += Math.max(safetyLast, safetyThis) * countLast + safetyThis;
 			safetyLast = safetyThis;
 			countLast = countThis;
 		}
@@ -258,17 +258,11 @@ public abstract class PathPlanning_Problem extends Problem {
 			double temp = (i - b) / k;
 			if(temp == Math.floor(temp)) {
 				temp = Math.floor(temp);
-				if(k > 0) {
-					if((mapMatrix_[i][(int)temp] == '1') 
-							|| (mapMatrix_[i - 1][(int)temp - 1] == '1')) {
-						return true;	
-					}
-				}
-				else {
-					if((mapMatrix_[i - 1][(int)temp] == '1') 
-							|| (mapMatrix_[i][(int)temp - 1] == '1')) {
-						return true;	
-					}
+				if((mapMatrix_[(int)temp][i] == '1') 						
+						|| (mapMatrix_[(int)temp][i - 1] == '1')
+						|| (mapMatrix_[(int)temp - 1][i] == '1')
+						|| (mapMatrix_[(int)temp - 1][i - 1] == '1')) {
+					return true;
 				}
 			}
 			else {

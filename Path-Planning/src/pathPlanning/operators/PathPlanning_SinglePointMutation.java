@@ -30,8 +30,8 @@ public class PathPlanning_SinglePointMutation extends Mutation {
 		try {
 			if (PseudoRandom.randDouble() < probability) {
 				int mutationPoint = PseudoRandom.randInt(1, solution.numberOfVariables() - 2);
-				int ulimit = (int)solution.getDecisionVariables()[0].getValue();
-				int blimit = (int)solution.getDecisionVariables()[solution.numberOfVariables() - 1].getValue();
+				int ulimit = (int)solution.getDecisionVariables()[solution.numberOfVariables() - 1].getValue();
+				int blimit = (int)solution.getDecisionVariables()[0].getValue();
 				int valueX = PseudoRandom.randInt(blimit + 1, ulimit - 1);				
 		        
 				int flag = 1;

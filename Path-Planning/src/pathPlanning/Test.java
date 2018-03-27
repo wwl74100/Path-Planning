@@ -1,6 +1,6 @@
 // Test.java
 
-package nsgaii;
+package pathPlanning;
 
 import jmetal.core.Solution;
 import jmetal.core.SolutionSet;
@@ -9,8 +9,12 @@ import jmetal.util.JMException;
 import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
 import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 import pathPlanning.demo.DemoPainter;
+import pathPlanning.operators.PathPlanning_SinglePointMutation;
+import pathPlanning.operators.PathPlanning_Sort;
+import pathPlanning.operators.PathPlanning_TwoPointCrossover;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
@@ -37,15 +41,28 @@ public class Test {
 	    
 	    // Execute the Algorithm
 	    long initTime = System.currentTimeMillis();
-	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map0.txt");
-	    System.out.println(problem_.getMapStartPoint());
-	    System.out.println(problem_.getMapTargetPoint());
-	    System.out.println(problem_.getSafetyOfSeg(0, 0, 2, 6));
+	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map3.txt");
 	    
-	    SolutionSet population = new SolutionSet(1);
+	    HashMap parameters = new HashMap() ;
+	    parameters.put("probability", 0.8) ;
+	    parameters.put("distributionIndex", 20.0) ;
+	    PathPlanning_Sort sort = new PathPlanning_Sort(parameters);
+	    
+	    parameters = new HashMap() ;
+	    parameters.put("probability", 0.8) ;
+	    parameters.put("distributionIndex", 20.0) ;
+	    PathPlanning_TwoPointCrossover crossover = new PathPlanning_TwoPointCrossover(parameters);
+	    
+	    parameters = new HashMap() ;
+	    parameters.put("probability", 1.0) ;
+	    parameters.put("distributionIndex", 20.0) ;
+	    PathPlanning_SinglePointMutation mutation = new PathPlanning_SinglePointMutation(parameters);
+	    
+	    SolutionSet population = new SolutionSet(5);
 	    Solution newSolution;
 	    for (int i = 0; i < 5; i++) {
 	      newSolution = new Solution(problem_);
+	      sort.execute(newSolution);
 	      problem_.evaluate(newSolution);
 	      problem_.evaluateConstraints(newSolution);
 	      population.add(newSolution);
@@ -53,11 +70,23 @@ public class Test {
 	    long estimatedTime = System.currentTimeMillis() - initTime;
 	    
 	    // Result messages 
-	    logger_.info("Total execution time: "+estimatedTime + "ms");
 	    logger_.info("Variables values have been writen to file VAR");
-	    population.printVariablesToFile("VAR");    
+	    population.printVariablesToFile("TestSortVAR");    
 	    logger_.info("Objectives values have been writen to file FUN");
-	    population.printObjectivesToFile("FUN");
+	    population.printObjectivesToFile("TestSortFUN");
+	    
+	    for (int i = 0; i < 5; i++) {
+		    newSolution = population.get(i);
+		    mutation.execute(newSolution);
+		    sort.execute(newSolution);
+		    problem_.evaluate(newSolution);
+		    problem_.evaluateConstraints(newSolution);
+	    }
+	    
+	    logger_.info("Variables values have been writen to file VAR");
+	    population.printVariablesToFile("TestMutationVAR");    
+	    logger_.info("Objectives values have been writen to file FUN");
+	    population.printObjectivesToFile("TestMutationFUN");
 	    
 	    new DemoPainter(problem_, population.best(new NSGAII_PathPlanning_Comparator()));
 	}

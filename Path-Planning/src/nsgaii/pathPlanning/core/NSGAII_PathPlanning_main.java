@@ -24,7 +24,7 @@ public class NSGAII_PathPlanning_main {
     								ClassNotFoundException {
 		// Logger object and file to store log messages
 	    logger_      = Configuration.logger_ ;
-	    fileHandler_ = new FileHandler("NSGAII_main.log"); 
+	    fileHandler_ = new FileHandler("NSGAII.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
 	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map3.txt");
@@ -37,10 +37,10 @@ public class NSGAII_PathPlanning_main {
 	    
 	    // Result messages 
 	    logger_.info("Total execution time: "+estimatedTime + "ms");
-	    logger_.info("Variables values have been writen to file VAR");
-	    population.printVariablesToFile("VAR");    
-	    logger_.info("Objectives values have been writen to file FUN");
-	    population.printObjectivesToFile("FUN");
+	    logger_.info("Variables values have been writen to file NSGAII_VAR");
+	    population.printVariablesToFile("NSGAII_VAR");    
+	    logger_.info("Objectives values have been writen to file NSGAII_FUN");
+	    population.printObjectivesToFile("NSGAII_FUN");
 	    
 	    new DemoPainter(algorithm.getProblem(), population.best(new NSGAII_PathPlanning_Comparator()));
 	}

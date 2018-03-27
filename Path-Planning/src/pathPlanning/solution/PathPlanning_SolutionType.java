@@ -29,29 +29,29 @@ public class PathPlanning_SolutionType extends SolutionType{
 				(int)problem_.getLowerLimit(problem_.getNumberOfVariables() - 1),
 				(int)problem_.getUpperLimit(problem_.getNumberOfVariables() - 1));
 		
-		for (int var = 1; var < problem_.getNumberOfVariables() - 1; var++) {
-			variables[var] = new Int((int)problem_.getLowerLimit(var),
-					(int)problem_.getUpperLimit(var));
+		try {
+			for (int var = 1; var < problem_.getNumberOfVariables() - 1; var++) {
+				variables[var] = new Int((int)variables[0].getValue() + 1,
+						(int)variables[problem_.getNumberOfVariables() - 1].getValue() - 1);
 			
-			int flag = 1;
-			while(flag == 1) {
-				for(int i = 0; i < var; ++ i) {
-					try {
+				int flag = 1;
+				while(flag == 1) {
+					for(int i = 0; i < var; ++ i) {
 						if(variables[i].getValue() == variables[var].getValue()) {
 							flag = 1;
-							variables[var] = new Int((int)problem_.getLowerLimit(var),
-									(int)problem_.getUpperLimit(var));
+							variables[var] = new Int((int)variables[0].getValue() + 1,
+									(int)variables[problem_.getNumberOfVariables() - 1].getValue() - 1);
 							break;
 						}
 						else {
 							flag = 0;
 						}
-					} catch(Exception e) {
-						e.printStackTrace();
-					}
-				}			
+					}			
+				}
 			}
-		}	
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		return variables;
 	}
 }

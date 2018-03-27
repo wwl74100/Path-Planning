@@ -16,6 +16,10 @@ import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_Modification;
 import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_SinglePointCrossover;
 import nsgaii.pathPlanning.operators.NSGAII_PathPlanning_SinglePointMutation;
 import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
+import pathPlanning.operators.PathPlanning_Modification;
+import pathPlanning.operators.PathPlanning_SinglePointMutation;
+import pathPlanning.operators.PathPlanning_Sort;
+import pathPlanning.operators.PathPlanning_TwoPointCrossover;
 
 public class NSGAII_PathPlanning_Settings extends Settings {
 	public int populationSize_                 ;
@@ -29,10 +33,10 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 		super();
 		problem_ = new NSGAII_PathPlanning_Problem(fileName);
 	    // Default experiments.settings
-	    populationSize_              = 100   ;
-	    maxEvaluations_              = 200000 ;
-	    mutationProbability_         = 1.0/problem_.getNumberOfVariables() ;
-	    crossoverProbability_        = 0.9   ;
+	    populationSize_              = 80   ;
+	    maxEvaluations_              = 50000 ;
+	    mutationProbability_         = 0.15 ;
+	    crossoverProbability_        = 0.8   ;
 	    mutationDistributionIndex_   = 20.0  ;
 	    crossoverDistributionIndex_  = 20.0  ;
 	} // NSGAII_Settings
@@ -42,7 +46,8 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 		Selection selection ;
 		Crossover crossover ;
 		Mutation  mutation  ;
-		NSGAII_PathPlanning_Modification modification;
+		PathPlanning_Modification modification;
+		PathPlanning_Sort sort;
 
 	    HashMap  parameters ; // Operator parameters
 
@@ -58,18 +63,23 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	    parameters = new HashMap() ;
 	    parameters.put("probability", crossoverProbability_) ;
 	    parameters.put("distributionIndex", crossoverDistributionIndex_) ;
-	    crossover = new NSGAII_PathPlanning_SinglePointCrossover(parameters);
+	    crossover = new PathPlanning_TwoPointCrossover(parameters);
 
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
-	    mutation = new NSGAII_PathPlanning_SinglePointMutation(parameters);
+	    mutation = new PathPlanning_SinglePointMutation(parameters);
 
 	    //modification
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
-	    modification = new NSGAII_PathPlanning_Modification(parameters);
+	    modification = new PathPlanning_Modification(parameters);
+	    
+	    parameters = new HashMap() ;
+	    parameters.put("probability", mutationProbability_) ;
+	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
+	    sort = new PathPlanning_Sort(parameters);
 	    
 	    // Selection Operator
 	    parameters = null ;
@@ -80,6 +90,7 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	    algorithm.addOperator("mutation",mutation);
 	    algorithm.addOperator("selection",selection);
 	    algorithm.addOperator("modification", modification);
+	    algorithm.addOperator("sort", sort);
 
 	    return algorithm ;
 	}

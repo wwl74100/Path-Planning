@@ -71,6 +71,7 @@ public class NSGAII_PathPlanning extends Algorithm {
     Operator crossoverOperator;
     Operator selectionOperator;
     Operator modificationOperator;
+    Operator sortOperator;
 
     Distance distance = new Distance();
 
@@ -90,12 +91,13 @@ public class NSGAII_PathPlanning extends Algorithm {
     crossoverOperator = operators_.get("crossover");
     selectionOperator = operators_.get("selection");
     modificationOperator = operators_.get("modification");
+    sortOperator = operators_.get("sort");
 
     // Create the initial solutionSet
     Solution newSolution;
     for (int i = 0; i < populationSize; i++) {
       newSolution = new Solution(problem_);
-      modificationOperator.execute(newSolution);
+      sortOperator.execute(newSolution);
       problem_.evaluate(newSolution);
       problem_.evaluateConstraints(newSolution);
       evaluations++;
@@ -104,7 +106,6 @@ public class NSGAII_PathPlanning extends Algorithm {
 
     // Generations 
     while (evaluations < maxEvaluations) {
-
       // Create the offSpring solutionSet      
       offspringPopulation = new SolutionSet(populationSize);
       Solution[] parents = new Solution[2];
@@ -113,11 +114,19 @@ public class NSGAII_PathPlanning extends Algorithm {
           //obtain parents
           parents[0] = (Solution) selectionOperator.execute(population);
           parents[1] = (Solution) selectionOperator.execute(population);
+
           Solution[] offSpring = (Solution[]) crossoverOperator.execute(parents);
+
+          sortOperator.execute(offSpring[0]);
           mutationOperator.execute(offSpring[0]);
+          sortOperator.execute(offSpring[0]);
           modificationOperator.execute(offSpring[0]);
+          
+          sortOperator.execute(offSpring[1]);
           mutationOperator.execute(offSpring[1]);
+          sortOperator.execute(offSpring[1]);
           modificationOperator.execute(offSpring[1]);
+          
           problem_.evaluate(offSpring[0]);
           problem_.evaluateConstraints(offSpring[0]);
           problem_.evaluate(offSpring[1]);
@@ -189,7 +198,7 @@ public class NSGAII_PathPlanning extends Algorithm {
 
     // Return the first non-dominated front
     Ranking ranking = new Ranking(population);
-    ranking.getSubfront(0).printFeasibleFUN("FUN_NSGAII") ;
+    ranking.getSubfront(0).printFeasibleFUN("NSGAII_FUN") ;
 
     return ranking.getSubfront(0);
   } // execute

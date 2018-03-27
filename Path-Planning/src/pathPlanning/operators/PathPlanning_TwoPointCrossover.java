@@ -19,7 +19,7 @@ public class PathPlanning_TwoPointCrossover extends Crossover {
 		}
 	}
 	
-	public Solution[] doCrossover(double probability,
+	/*public Solution[] doCrossover(double probability,
 			  					  Solution parent1,
 			  					  Solution parent2) throws JMException {
 		Solution[] offSpring = new Solution[2];
@@ -123,6 +123,35 @@ public class PathPlanning_TwoPointCrossover extends Crossover {
 		} catch (ClassCastException e1) {
 			Configuration.logger_.severe("SinglePointCrossover.doCrossover: Cannot perfom " +
 					 					"SinglePointCrossover");
+			Class cls = java.lang.String.class;
+			String name = cls.getName();
+			throw new JMException("Exception in " + name + ".doCrossover()");
+		}
+		return offSpring;
+	}*/
+	
+	public Solution[] doCrossover(double probability,
+			  Solution parent1,
+			  Solution parent2) throws JMException {
+		Solution[] offSpring = new Solution[2];
+		offSpring[0] = new Solution(parent1);
+		offSpring[1] = new Solution(parent2);
+		try {
+			if (PseudoRandom.randDouble() < probability) {
+				int crossoverPoint1 = PseudoRandom.randInt(1, parent1.numberOfVariables() - 2);
+				int crossoverPoint2 = PseudoRandom.randInt(crossoverPoint1, parent1.numberOfVariables() - 2);
+				int valueX1;
+				int valueX2;
+				for (int i = crossoverPoint1; i <= crossoverPoint2; i++) {
+					valueX1 = (int) parent1.getDecisionVariables()[i].getValue();
+					valueX2 = (int) parent2.getDecisionVariables()[i].getValue();
+					offSpring[0].getDecisionVariables()[i].setValue(valueX2);
+					offSpring[1].getDecisionVariables()[i].setValue(valueX1);
+				} 
+			}
+		} catch (ClassCastException e1) {
+			Configuration.logger_.severe("SinglePointCrossover.doCrossover: Cannot perfom " +
+					"SinglePointCrossover");
 			Class cls = java.lang.String.class;
 			String name = cls.getName();
 			throw new JMException("Exception in " + name + ".doCrossover()");
