@@ -26,9 +26,10 @@ public class PathPlanning_Modification extends Operator {
 			x[i] = gen[i].getValue() % mapColumn_;
 		}
 		
-		for(int i = 0; i < numberOfVariables_; ++ i) {
+		
+		for(int i = 0; i < numberOfVariables_ - 2; ++ i) {
 			for(int j = i + 2; j < numberOfVariables_; ++ j) {
-				if(problem_.checkSegInObstacle((int)x[i], (int)y[i], (int)x[j], (int)y[j]) == false) {
+				if(problem_.checkSegInObstacle((int)x[i], (int)y[i], (int)x[j], (int)y[j]) == 0) {
 					int temp = (int)solution.getDecisionVariables()[i].getValue();
 					for(int k = i + 1; k < j; ++ k) {
 						solution.getDecisionVariables()[k].setValue(temp);
@@ -38,6 +39,20 @@ public class PathPlanning_Modification extends Operator {
 				}
 			}
 		}
+		
+		/*
+		for(int i = 0; i < numberOfVariables_ - 2; ++ i) {
+			if((problem_.checkSegInObstacle((int)x[i], (int)y[i], (int)x[i + 1], (int)y[i + 1]) == true)
+				|| (problem_.checkSegInObstacle((int)x[i + 1], (int)y[i + 1], (int)x[i + 2], (int)y[i + 2]) == true)) {
+				if(problem_.checkSegInObstacle((int)x[i], (int)y[i], (int)x[i + 2], (int)y[i + 2]) == false) {
+					int temp = (int)solution.getDecisionVariables()[i].getValue();
+					solution.getDecisionVariables()[i + 1].setValue(temp);
+					x[i + 1] = x[i];
+					y[i + 1] = y[i];
+				}		
+			}			
+		}
+		*/
 	}
 	
 	public Object execute(Object object) throws JMException {

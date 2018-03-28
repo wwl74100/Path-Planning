@@ -27,10 +27,10 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 		super();
 		problem_ = new Normal_GA_PathPlanning_Problem(fileName);
 	    // Default experiments.settings
-	    populationSize_              = 100   ;
-	    maxEvaluations_              = 200000 ;
-	    mutationProbability_         = 1.0/problem_.getNumberOfVariables() ;
-	    crossoverProbability_        = 0.9   ;
+	    populationSize_              = 80   ;
+	    maxEvaluations_              = 40000 ;
+	    mutationProbability_         = 0.15 ;
+	    crossoverProbability_        = 0.8   ;
 	    mutationDistributionIndex_   = 20.0  ;
 	    crossoverDistributionIndex_  = 20.0  ;
 	} // Normal_GA_Settings

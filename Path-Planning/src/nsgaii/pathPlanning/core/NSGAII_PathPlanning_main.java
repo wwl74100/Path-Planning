@@ -1,4 +1,4 @@
-// NSGAIIPathPlanning_main.java
+  // NSGAIIPathPlanning_main.java
 
 package nsgaii.pathPlanning.core;
 
@@ -27,7 +27,7 @@ public class NSGAII_PathPlanning_main {
 	    fileHandler_ = new FileHandler("NSGAII.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map3.txt");
+	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map4.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm

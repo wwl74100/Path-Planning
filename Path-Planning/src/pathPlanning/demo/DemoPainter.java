@@ -1,6 +1,7 @@
 package pathPlanning.demo;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
@@ -8,7 +9,7 @@ import javax.swing.JFrame;
 import jmetal.core.Problem;
 import jmetal.core.Solution;
 import jmetal.core.Variable;
-import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
+import pathPlanning.problem.PathPlanning_Problem;
 
 public class DemoPainter extends JFrame {	
 	public Problem problem_;
@@ -24,9 +25,9 @@ public class DemoPainter extends JFrame {
 		
 		problem_ = problem;
 		solution_ = solution;
-		mapRow_ = ((NSGAII_PathPlanning_Problem)problem_).getMapRow();
-		mapColumn_ = ((NSGAII_PathPlanning_Problem)problem_).getMapColumn();
-		mapMatrix_ = ((NSGAII_PathPlanning_Problem)problem_).getMapMatrix();
+		mapRow_ = ((PathPlanning_Problem)problem_).getMapRow();
+		mapColumn_ = ((PathPlanning_Problem)problem_).getMapColumn();
+		mapMatrix_ = ((PathPlanning_Problem)problem_).getMapMatrix();
 	} 
 	
 	@Override
@@ -49,8 +50,12 @@ public class DemoPainter extends JFrame {
 			g.drawLine(20, 60 + i * 40, sizeX - 20, 60 + i * 40);
 		}
 		
+		Font font = new Font("ËÎÌו", Font.BOLD, 15);
 		for(int i = 0; i < mapRow_; ++ i) {
 			for(int j = 0; j < mapColumn_; ++ j) {
+				g.setColor(Color.black);
+				g.setFont(font);
+				g.drawString(String.valueOf(i * mapRow_ + j), j * 40 + 30, sizeY - 40 - i * 40);
 				if(mapMatrix_[i][j] == '1') {
 					g.setColor(Color.DARK_GRAY);
 					g.fillRect(j * 40 + 20, sizeY - 20 - (i + 1) * 40, 40, 40);

@@ -4,6 +4,7 @@ import jmetal.core.Algorithm;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
+import normalGA.pathPlanning.comparator.Normal_GA_PathPlanning_Comparator;
 import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
 import pathPlanning.demo.DemoPainter;
 
@@ -26,7 +27,7 @@ public class Normal_GA_PathPlanning_main {
 	    fileHandler_ = new FileHandler("NSGAII_main.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map3.txt");
+	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map4.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm
@@ -39,8 +40,8 @@ public class Normal_GA_PathPlanning_main {
 	    logger_.info("Variables values have been writen to file VAR");
 	    population.printVariablesToFile("VAR");    
 	    logger_.info("Objectives values have been writen to file FUN");
-	    population.printObjectivesToFile("FUN");
+	    population.printFitnessToFile("FUN");
 	    
-	    new DemoPainter(algorithm.getProblem(), population.best(new NSGAII_PathPlanning_Comparator()));
+	    new DemoPainter(algorithm.getProblem(), population.best(new Normal_GA_PathPlanning_Comparator()));
 	}
 }

@@ -70,54 +70,12 @@ public class NSGAII_PathPlanning_Comparator_Test implements Comparator {
 	      value2[i] = solution2.getObjective(i);
 	    }
 	    
-	    if(value1[1] < value2[1]) {
-			return -1;
-		}
-		//if length 1 > length 2
-		else if(value1[1] > value2[1]) {
-			return 1;
-		}
-		else {
-			if(value1[0] > Double.MAX_VALUE / 2) {
-		    	//if path 2 is not feasible
-		    	if(value2[0] > Double.MAX_VALUE / 2) {
-		    		return 0;
-		    	}
-		    	//if path 2 if feasible
-		    	else {
-		    		return 1;
-		    	}
-		    }
-			else {
-		    	//if path 2 is not feasible
-		    	if(value2[0] > Double.MAX_VALUE / 2) {
-		    		return -1;
-		    	}
-		    	//if path 2 is feasible
-		    	else {
-		    		if(value1[0] < value2[0]) {
-		    			return -1;
-		    		}
-		    		//if angle 1 > angle 2
-		    		else if(value1[0] > value2[0]) {
-		    			return 1;
-		    		}
-	    			//if angle 1 = angle 2
-		    		else {
-		    			if(value1[2] < value2[2]) {
-			    			return -1;
-			    		}
-			    		//if safety 1 > safety 2
-			    		else if(value1[2] > value2[2]) {
-			    			return 1;
-			    		}
-		    			//if safety 1 = safety 2
-			    		else {
-			    			return 0;
-			    		}
-		    		}
-		    	}
-		    }
-		}
+	    int flag1 = 0, flag2 = 0;
+	    if((value1[0] > Double.MAX_VALUE / 2) && (value2[0] > Double.MAX_VALUE / 2)) {
+	    	return 0;
+	    }
+	    else {
+	    	return 1;
+	    }
 	}
 }

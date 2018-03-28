@@ -279,6 +279,27 @@ public class SolutionSet implements Serializable {
     }       
   } // printVariablesToFile
 
+  public void printFitnessToFile(String path) {
+	  try {
+	      /* Open the file */
+	      FileOutputStream fos   = new FileOutputStream(path)     ;
+	      OutputStreamWriter osw = new OutputStreamWriter(fos)    ;
+	      BufferedWriter bw      = new BufferedWriter(osw)        ;
+
+	      for (Solution aSolutionsList_ : solutionsList_) {
+	        //if (this.vector[i].getFitness()<1.0) {
+	        bw.write(String.valueOf(aSolutionsList_.getFitness()));
+	        bw.newLine();
+	        //}
+	      }
+
+	      /* Close the file */
+	      bw.close();
+	    }catch (IOException e) {
+	      Configuration.logger_.severe("Error acceding to the file");
+	      e.printStackTrace();
+	    }
+  }
 
   /**
    * Write the function values of feasible solutions into a file

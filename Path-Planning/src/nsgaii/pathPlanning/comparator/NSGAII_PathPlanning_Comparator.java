@@ -125,34 +125,6 @@ public class NSGAII_PathPlanning_Comparator implements Comparator {
 			    		}
 		    		}
 	    		}
-	    		
-	    		/*
-	    		//safety first
-	    		else {
-	    			//if safety 1 < safety 2
-	    			if(value1[0] < value2[0]) {
-		    			return -1;
-		    		}
-		    		//if safety 1 > safety 2
-		    		else if(value1[0] > value2[0]) {
-		    			return 1;
-		    		}
-	    			//if safety 1 = safety 2
-		    		else {
-		    			//if angle 1 < angle 2
-		    			if(value1[1] < value2[1]) {
-			    			return -1;
-			    		}
-			    		//if angle 1 > angle 2
-			    		else if(value1[1] > value2[1]) {
-			    			return 1;
-			    		}
-		    			//if angle 1 = angle 2
-			    		else {
-			    			return 0;
-			    		}
-		    		}
-	    		}*/
 	    	}
 	    }
 	}

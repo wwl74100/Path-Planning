@@ -37,12 +37,14 @@ public class Test {
 	    //NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings();
 	    //Algorithm algorithm = settings.configure();
 	    
-	    System.out.println(Math.atan(1));
-	    
 	    // Execute the Algorithm
 	    long initTime = System.currentTimeMillis();
-	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map3.txt");
+	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map0.txt");
 	    
+	    double temp = problem_.getSafetyOfSeg(0, 0, 0, 0);
+	    System.out.println(temp);
+
+	    /*
 	    HashMap parameters = new HashMap() ;
 	    parameters.put("probability", 0.8) ;
 	    parameters.put("distributionIndex", 20.0) ;
@@ -89,5 +91,6 @@ public class Test {
 	    population.printObjectivesToFile("TestMutationFUN");
 	    
 	    new DemoPainter(problem_, population.best(new NSGAII_PathPlanning_Comparator()));
+	    */
 	}
 }
