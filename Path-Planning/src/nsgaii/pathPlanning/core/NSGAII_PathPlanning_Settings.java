@@ -31,7 +31,7 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 		problem_ = new NSGAII_PathPlanning_Problem(fileName);
 	    // Default experiments.settings
 	    populationSize_              = 80   ;
-	    maxEvaluations_              = 40000 ;
+	    maxEvaluations_              = 16000 ;
 	    mutationProbability_         = 0.15 ;
 	    crossoverProbability_        = 0.8   ;
 	    mutationDistributionIndex_   = 20.0  ;

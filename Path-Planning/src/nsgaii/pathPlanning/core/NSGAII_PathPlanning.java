@@ -198,7 +198,7 @@ public class NSGAII_PathPlanning extends Algorithm {
 
     // Return the first non-dominated front
     Ranking ranking = new Ranking(population);
-    ranking.getSubfront(0).printFeasibleFUN("NSGAII_FUN") ;
+    //ranking.getSubfront(0).printFeasibleFUN("Result_NSGAII/NSGAII_FEA") ;
 
     return ranking.getSubfront(0);
   } // execute

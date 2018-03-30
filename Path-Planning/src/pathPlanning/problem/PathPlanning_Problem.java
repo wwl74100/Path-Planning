@@ -8,6 +8,8 @@ import jmetal.util.JMException;
 import pathPlanning.solution.PathPlanning_SolutionType;
 
 public abstract class PathPlanning_Problem extends Problem {
+	private double bias = 0.00001;
+	
 	protected int mapSize_;         // map size
 	protected int mapRow_;          // map row number
 	protected int mapColumn_;       // map column number
@@ -366,23 +368,23 @@ public abstract class PathPlanning_Problem extends Problem {
 				if(mapMatrix_[j][i] == '1') {
 					//if this point is the start or end point of the segment
 					if(((i == x1) && (j == y1)) || ((i == x2) && (j == y2))) {
-						if((k * i + b >= Math.max(minY + 0.5, j)) 
-								&& (k * i + b <= Math.min(maxY + 0.5, j + 1))) {
+						if((k * i + b >= Math.max(minY + 0.5, j) - bias) 
+								&& (k * i + b <= Math.min(maxY + 0.5, j + 1) + bias)) {
 							len += getLengthOfSeg(i + 0.5, j + 0.5, i, k * i + b);
 							continue;
 						}
-						if((k * (i + 1) + b >= Math.max(minY + 0.5, j))
-								&& (k * (i + 1) + b <= Math.min(maxY + 0.5, j + 1))) {
+						if((k * (i + 1) + b >= Math.max(minY + 0.5, j) - bias)
+								&& (k * (i + 1) + b <= Math.min(maxY + 0.5, j + 1) + bias)) {
 							len += getLengthOfSeg(i + 0.5, j + 0.5, i + 1, k * (i + 1) + b);
 							continue;
 						}
-						if(((j - b) / k >= Math.max(i, minX + 0.5)) 
-								&& ((j - b) / k <= Math.min(i + 1, maxX + 0.5))) {
+						if(((j - b) / k >= Math.max(i, minX + 0.5) - bias) 
+								&& ((j - b) / k <= Math.min(i + 1, maxX + 0.5) + bias)) {
 							len += getLengthOfSeg(i + 0.5, j + 0.5, (j - b) / k, j);
 							continue;
 						}
-						if(((j + 1 - b) / k >= Math.max(i, minX + 0.5)) 
-								&& ((j + 1 - b) / k <= Math.min(i + 1, maxX + 0.5))) {
+						if(((j + 1 - b) / k >= Math.max(i, minX + 0.5) - bias) 
+								&& ((j + 1 - b) / k <= Math.min(i + 1, maxX + 0.5) + bias)) {
 							len += getLengthOfSeg(i + 0.5, j + 0.5, (j + 1 - b) / k, j + 1);
 							continue;
 						}
@@ -395,10 +397,10 @@ public abstract class PathPlanning_Problem extends Problem {
 						//System.out.println(((j - b) / k) + " " + ((j + 1 - b) / k));
 						int flag1 = 0, flag2 = 0;
 						double a1 = 0.0, b1 = 0.0, a2 = 0.0, b2 = 0.0;
-						if((k * i + b >= Math.max(minY + 0.5, j)) 
-								&& (k * i + b <= Math.min(maxY + 0.5, j + 1))) {
+						if((k * i + b >= Math.max(minY + 0.5, j) - bias) 
+								&& (k * i + b <= Math.min(maxY + 0.5, j + 1) + bias)) {
 							if(flag1 == 1) {
-								if(i != a1) {
+								if((i < a1 - bias) || (i > a1 + bias)) {
 									a2 = i;
 									b2 = k * i + b;
 									flag2 = 1;
@@ -410,10 +412,10 @@ public abstract class PathPlanning_Problem extends Problem {
 								flag1 = 1;
 							}
 						}
-						if((k * (i + 1) + b >= Math.max(minY + 0.5, j)) 
-								&& (k * (i + 1) + b <= Math.min(maxY + 0.5, j + 1))) {
+						if((k * (i + 1) + b >= Math.max(minY + 0.5, j) - bias) 
+								&& (k * (i + 1) + b <= Math.min(maxY + 0.5, j + 1) + bias)) {
 							if(flag1 == 1) {
-								if(i + 1 != a1) {
+								if((i + 1 < a1 - bias) || (i + 1 > a1 + bias)) {
 									a2 = i + 1;
 									b2 = k * (i + 1) + b;
 									flag2 = 1;
@@ -426,10 +428,10 @@ public abstract class PathPlanning_Problem extends Problem {
 							}
 						}
 						
-						if(((j - b) / k >= Math.max(i, minX + 0.5)) 
-								&& ((j - b) / k <= Math.min(i + 1, maxX + 0.5))) {
+						if(((j - b) / k >= Math.max(i, minX + 0.5) - bias) 
+								&& ((j - b) / k <= Math.min(i + 1, maxX + 0.5) + bias)) {
 							if(flag1 == 1) {
-								if(j != b1) {
+								if((j < b1 - bias) || (j > b1 + bias)) {
 									a2 = (j - b) / k;
 									b2 = j;
 									flag2 = 1;
@@ -442,10 +444,10 @@ public abstract class PathPlanning_Problem extends Problem {
 							}
 						}
 						
-						if(((j + 1 - b) / k >= Math.max(i, minX + 0.5)) 
-								&& ((j + 1 - b) / k <= Math.min(i + 1, maxX + 0.5))) {
+						if(((j + 1 - b) / k >= Math.max(i, minX + 0.5) - bias) 
+								&& ((j + 1 - b) / k <= Math.min(i + 1, maxX + 0.5) + bias)) {
 							if(flag1 == 1) {
-								if(j + 1 != b1) {
+								if((j + 1 < b1 - bias) || (j + 1 > b1 + bias)) {
 									a2 = (j + 1 - b) / k;
 									b2 = j + 1;
 									flag2 = 1;

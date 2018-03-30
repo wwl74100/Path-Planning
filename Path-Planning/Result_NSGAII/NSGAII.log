@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GBK" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-03-30T14:46:25</date>
+  <millis>1522392385819</millis>
+  <sequence>0</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 562ms</message>
+</record>
+<record>
+  <date>2018-03-30T14:46:25</date>
+  <millis>1522392385850</millis>
+  <sequence>1</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file NSGAII_VAR</message>
+</record>
+<record>
+  <date>2018-03-30T14:46:25</date>
+  <millis>1522392385866</millis>
+  <sequence>2</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file NSGAII_FUN</message>
+</record>
+</log>

@@ -12,7 +12,7 @@ public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {
 		getMapInfo(fileName);
 		
 		numberOfVariables_ = 10;
-		numberOfObjectives_ = 1;
+		numberOfObjectives_ = 5;
 		numberOfConstraints_ = 0;
 		problemName_ = "Path Planning";
 		
@@ -30,8 +30,8 @@ public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {
 	}
 
 	public void evaluate(Solution solution) throws JMException {
-		double wd = 1.0, ws = 1.0, wk = 1.0, C = 10.0;
-		double wl = 1.0, wc = 1.0;
+		double wd = 50, ws = 10, wk = 5, C = 5;
+		double wl = 5.0, wc = 50.0;
 		
 		Variable[] gen = solution.getDecisionVariables();
 		
@@ -47,16 +47,24 @@ public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {
 		double pathSafety, pathAngle;
 		double[] pathInfeasiblePercent;
 		
-		if(checkPathFeasible(x, y) == true) {
-			pathSafety = getPathSafety(gen, x, y);
-			pathAngle = getPathAngle(gen, x, y);
-			
-			f = 10 * C + wk * pathAngle +  (1 / (wd * pathLength + ws * pathSafety));
+		pathSafety = getPathSafety(gen, x, y);
+		pathAngle = getPathAngle(gen, x, y);
+		pathInfeasiblePercent = getPathInfeasiblePercent(x, y, pathLength);
+		
+		if(checkPathFeasible(x, y) == true) {	
+			//f = C +  (1 / (wd * pathLength + ws * pathSafety + wk * pathAngle));
+			f = C +  wd / pathLength + ws / pathSafety + wk / pathAngle;
 		}
 		else {
-			pathInfeasiblePercent = getPathInfeasiblePercent(x, y, pathLength);		
-			f = 1 / (wd * pathLength + wl * pathInfeasiblePercent[0] + wc * pathInfeasiblePercent[1]);
+			//f = 1 / (wd * pathLength + wl * pathInfeasiblePercent[0] + wc * pathInfeasiblePercent[1]);
+			f = wd / pathLength + 1 / (wl * pathInfeasiblePercent[0] + wc * pathInfeasiblePercent[1]);
 		}
 		solution.setFitness(f);
+		
+		solution.setObjective(0, pathLength);
+		solution.setObjective(1, pathSafety);
+		solution.setObjective(2, pathAngle);
+		solution.setObjective(3, pathInfeasiblePercent[0]);
+		solution.setObjective(4, pathInfeasiblePercent[1]);
 	} 
 }

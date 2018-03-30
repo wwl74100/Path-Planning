@@ -6,13 +6,13 @@ import jmetal.core.Solution;
 import jmetal.util.comparators.IConstraintViolationComparator;
 import jmetal.util.comparators.OverallConstraintViolationComparator;
 
-public class NSGAII_PathPlanning_Comparator implements Comparator {
+public class NSGAII_PathPlanning_ThreeObjectiveComparator implements Comparator {
 	IConstraintViolationComparator violationConstraintComparator_ ;
 	 
 	  /**
 	   * Constructor
 	   */
-	  public NSGAII_PathPlanning_Comparator() {
+	  public NSGAII_PathPlanning_ThreeObjectiveComparator() {
 	    violationConstraintComparator_ = new OverallConstraintViolationComparator(); 
 	    //violationConstraintComparator_ = new NumberOfViolatedConstraintComparator(); 
 	  }
@@ -21,7 +21,7 @@ public class NSGAII_PathPlanning_Comparator implements Comparator {
 	   * Constructor
 	   * @param comparator
 	   */
-	  public NSGAII_PathPlanning_Comparator(IConstraintViolationComparator comparator) {
+	  public NSGAII_PathPlanning_ThreeObjectiveComparator(IConstraintViolationComparator comparator) {
 	    violationConstraintComparator_ = comparator ;
 	  }
 	 
@@ -70,56 +70,98 @@ public class NSGAII_PathPlanning_Comparator implements Comparator {
 	      value2[i] = solution2.getObjective(i);
 	    }
 	    
-	    //if path 1 is not feasible
-	    if(value1[0] > Double.MAX_VALUE / 2) {
-	    	//if path 2 is not feasible
-	    	if(value2[0] > Double.MAX_VALUE / 2) {
+	    /**
+		 * three objective: (1)length
+		 * 					(2)safety
+		 * 					(3)angle
+		 */
+	    /*//path feasible
+	    if(value1[1] > Double.MAX_VALUE / 2) {
+	    	if(value2[1] > Double.MAX_VALUE / 2) {
 	    		return 0;
 	    	}
-	    	//if path 2 if feasible
 	    	else {
 	    		return 1;
 	    	}
 	    }
-	    //if path 1 is feasible
 	    else {
-	    	//if path 2 is not feasible
-	    	if(value2[0] > Double.MAX_VALUE / 2) {
+	    	if(value2[1] > Double.MAX_VALUE / 2) {
 	    		return -1;
 	    	}
-	    	//if path 2 is feasible
+	    	//length
 	    	else {
-	    		//if length 1 < length 2
-	    		if(value1[1] < value2[1]) {
+	    		if(value1[0] < value2[0]) {
 	    			return -1;
 	    		}
-	    		//if length 1 > length 2
-	    		else if(value1[1] > value2[1]) {
+	    		else if(value1[0] > value2[0]) {
 	    			return 1;
 	    		}
-	    		
-	    		// angle first
-	    		//if length 1 = length 2
+	    		//angle
 	    		else {
-	    			//if safety 1 < safety 2
 	    			if(value1[2] < value2[2]) {
 		    			return -1;
 		    		}
-		    		//if safety 1 > safety 2
 		    		else if(value1[2] > value2[2]) {
 		    			return 1;
 		    		}
-	    			//if safety 1 = safety 2
+	    			//safety
 		    		else {
-		    			//if angle 1 < angle 2
-		    			if(value1[0] < value2[0]) {
+		    			if(value1[1] < value2[1]) {
 			    			return -1;
 			    		}
-			    		//if angle 1 > angle 2
-			    		else if(value1[0] > value2[0]) {
+			    		else if(value1[1] > value2[1]) {
 			    			return 1;
 			    		}
-		    			//if angle 1 = angle 2
+			    		else {
+			    			return 0;
+			    		}
+		    		}
+	    		}
+	    	}
+	    }*/
+	    
+	    /**
+		 * three objective: (1)length
+		 * 					(2)infeasible segment percent & infeasible length percent
+		 * 					(3)angle
+		 */
+	    //path feasible
+	    if(value1[1] > 0) {
+	    	if(value2[1] > 0) {
+	    		return 0;
+	    	}
+	    	else {
+	    		return 1;
+	    	}
+	    }
+	    else {
+	    	if(value2[1] > 0) {
+	    		return -1;
+	    	}
+	    	//length
+	    	else {
+	    		if(value1[0] < value2[0]) {
+	    			return -1;
+	    		}
+	    		else if(value1[0] > value2[0]) {
+	    			return 1;
+	    		}
+	    		//angle
+	    		else {
+	    			if(value1[2] < value2[2]) {
+		    			return -1;
+		    		}
+		    		else if(value1[2] > value2[2]) {
+		    			return 1;
+		    		}
+	    			//safety
+		    		else {
+		    			if(value1[1] < value2[1]) {
+			    			return -1;
+			    		}
+			    		else if(value1[1] > value2[1]) {
+			    			return 1;
+			    		}
 			    		else {
 			    			return 0;
 			    		}

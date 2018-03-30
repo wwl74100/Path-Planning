@@ -20,8 +20,9 @@ public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
 		super(fileName);
 		
 		numberOfVariables_ = 10;
-		//numberOfVariables_ = 3;
+		
 		numberOfObjectives_ = 3;
+		//numberOfObjectives_ = 2;
 		numberOfConstraints_ = 0;
 		problemName_ = "Path Planning";
 		
@@ -55,12 +56,58 @@ public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
 		
 		double[] f = new double[numberOfObjectives_];
 		
-		f[0] = getPathSafety(gen, x, y);
-		f[1] = getPathLength(x, y);
-		f[2] = getPathAngle(gen, x, y);
+		double pathLength = getPathLength(x, y);
+		double pathSafety, pathAngle;
+		double[] pathInfeasiblePercent;
+		
+		pathSafety = getPathSafety(gen, x, y);
+		pathAngle = getPathAngle(gen, x, y);
+		pathInfeasiblePercent = getPathInfeasiblePercent(x, y, pathLength);
+		
+		/**
+		 * three objective: (1)length
+		 * 					(2)safety
+		 * 					(3)angle
+		 */
+		/*f[0] = pathLength;
+		f[1] = pathSafety;
+		f[2] = pathAngle;
+		
+		solution.setObjective(0, f[0]);
+		solution.setObjective(1, f[1]);
+		solution.setObjective(2, f[2]);*/
+		
+		/**
+		 * three objective: (1)length
+		 * 					(2)infeasible segment percent & infeasible length percent
+		 * 					(3)angle
+		 */
+		f[0] = pathLength;
+		f[1] = 10 * pathInfeasiblePercent[0] + 100 * pathInfeasiblePercent[1];
+		f[2] = pathAngle;
 		
 		solution.setObjective(0, f[0]);
 		solution.setObjective(1, f[1]);
 		solution.setObjective(2, f[2]);
+		
+		/**
+		 * double objective: (1)length
+		 * 					 (2)feasible: safety & angle
+		 * 						infeasible: infeasible segment percent & infeasible length percent
+		 */
+		/*f[0] = pathLength;
+		double ws = 5.0; //weight of path safety
+		double wa = 5.0; //weight of path angle
+		double wps = 100.0;//weight of infeasible segment percent
+		double wpl = 100.0;//weight of infeasible length percent
+		if(checkPathFeasible(x, y) == true) {
+			f[1] = ws * pathSafety + wa * pathAngle;
+		}
+		else {
+			f[1] = wps * pathInfeasiblePercent[0] + wpl * pathInfeasiblePercent[1];
+		}
+		
+		solution.setObjective(0, f[0]);
+		solution.setObjective(1, f[1]);*/
 	} 
 }

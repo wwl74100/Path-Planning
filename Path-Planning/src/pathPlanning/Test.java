@@ -6,7 +6,7 @@ import jmetal.core.Solution;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
-import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_ThreeObjectiveComparator;
 import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 import pathPlanning.demo.DemoPainter;
 import pathPlanning.operators.PathPlanning_SinglePointMutation;
@@ -39,9 +39,9 @@ public class Test {
 	    
 	    // Execute the Algorithm
 	    long initTime = System.currentTimeMillis();
-	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map0.txt");
+	    NSGAII_PathPlanning_Problem problem_ = new NSGAII_PathPlanning_Problem("map/map1.txt");
 	    
-	    double temp = problem_.getSafetyOfSeg(0, 0, 0, 0);
+	    double temp = problem_.checkSegInObstacle(12, 8, 15, 15);
 	    System.out.println(temp);
 
 	    /*

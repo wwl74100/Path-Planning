@@ -6,7 +6,8 @@ import jmetal.core.Algorithm;
 import jmetal.core.SolutionSet;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
-import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_Comparator;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_DoubleObjectiveComparator;
+import nsgaii.pathPlanning.comparator.NSGAII_PathPlanning_ThreeObjectiveComparator;
 import pathPlanning.demo.DemoPainter;
 
 import java.io.IOException;
@@ -24,10 +25,10 @@ public class NSGAII_PathPlanning_main {
     								ClassNotFoundException {
 		// Logger object and file to store log messages
 	    logger_      = Configuration.logger_ ;
-	    fileHandler_ = new FileHandler("NSGAII.log"); 
+	    fileHandler_ = new FileHandler("Result_NSGAII/NSGAII.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map4.txt");
+	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map2.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm
@@ -38,10 +39,17 @@ public class NSGAII_PathPlanning_main {
 	    // Result messages 
 	    logger_.info("Total execution time: "+estimatedTime + "ms");
 	    logger_.info("Variables values have been writen to file NSGAII_VAR");
-	    population.printVariablesToFile("NSGAII_VAR");    
+	    population.printVariablesToFile("Result_NSGAII/NSGAII_VAR");    
 	    logger_.info("Objectives values have been writen to file NSGAII_FUN");
-	    population.printObjectivesToFile("NSGAII_FUN");
+	    population.printObjectivesToFile("Result_NSGAII/NSGAII_FUN");
 	    
-	    new DemoPainter(algorithm.getProblem(), population.best(new NSGAII_PathPlanning_Comparator()));
+	    //double objective
+	    //population.sort(new NSGAII_PathPlanning_DoubleObjectiveComparator());
+	    //new DemoPainter("NSGAII", algorithm.getProblem(), population.best(new NSGAII_PathPlanning_DoubleObjectiveComparator()));
+	
+	    //three objective
+	    population.sort(new NSGAII_PathPlanning_ThreeObjectiveComparator());
+	    new DemoPainter("NSGAII", algorithm.getProblem(), population.best(new NSGAII_PathPlanning_ThreeObjectiveComparator()));
+	
 	}
 }

@@ -18,10 +18,11 @@ public class DemoPainter extends JFrame {
 	public int mapColumn_;
 	public char[][] mapMatrix_;
 	
-	public DemoPainter(Problem problem, Solution solution) { 
+	public DemoPainter(String title, Problem problem, Solution solution) { 
 		this.setSize(1050, 1050); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		setVisible(true); 
+		setTitle(title);
 		
 		problem_ = problem;
 		solution_ = solution;
@@ -32,7 +33,7 @@ public class DemoPainter extends JFrame {
 	
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);		
+		super.paint(g);	
 		paintMap(g);
 		paintPath(g);
 	}

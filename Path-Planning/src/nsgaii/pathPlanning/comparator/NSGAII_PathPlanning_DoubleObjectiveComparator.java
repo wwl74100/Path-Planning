@@ -6,13 +6,13 @@ import jmetal.core.Solution;
 import jmetal.util.comparators.IConstraintViolationComparator;
 import jmetal.util.comparators.OverallConstraintViolationComparator;
 
-public class NSGAII_PathPlanning_Comparator_Test implements Comparator {
+public class NSGAII_PathPlanning_DoubleObjectiveComparator implements Comparator {
 	IConstraintViolationComparator violationConstraintComparator_ ;
 	 
 	  /**
 	   * Constructor
 	   */
-	  public NSGAII_PathPlanning_Comparator_Test() {
+	  public NSGAII_PathPlanning_DoubleObjectiveComparator() {
 	    violationConstraintComparator_ = new OverallConstraintViolationComparator(); 
 	    //violationConstraintComparator_ = new NumberOfViolatedConstraintComparator(); 
 	  }
@@ -21,7 +21,7 @@ public class NSGAII_PathPlanning_Comparator_Test implements Comparator {
 	   * Constructor
 	   * @param comparator
 	   */
-	  public NSGAII_PathPlanning_Comparator_Test(IConstraintViolationComparator comparator) {
+	  public NSGAII_PathPlanning_DoubleObjectiveComparator(IConstraintViolationComparator comparator) {
 	    violationConstraintComparator_ = comparator ;
 	  }
 	 
@@ -70,12 +70,27 @@ public class NSGAII_PathPlanning_Comparator_Test implements Comparator {
 	      value2[i] = solution2.getObjective(i);
 	    }
 	    
-	    int flag1 = 0, flag2 = 0;
-	    if((value1[0] > Double.MAX_VALUE / 2) && (value2[0] > Double.MAX_VALUE / 2)) {
-	    	return 0;
+	    /**
+		 * double objective: (1)length
+		 * 					 (2)feasible: safety & angle
+		 * 						infeasible: infeasible segment percent & infeasible length percent
+		 */
+	    if(value1[0] < value2[0]) {
+	    	return -1;
+	    }
+	    else if(value1[0] > value2[0]) {
+	    	return 1;
 	    }
 	    else {
-	    	return 1;
+	    	if(value1[1] < value2[1]) {
+	    		return -1;
+	    	}
+	    	else if(value1[1] > value2[1]) {
+	    		return 1;
+	    	}
+	    	else {
+	    		return 0;
+	    	}
 	    }
 	}
 }
