@@ -75,7 +75,7 @@ public class NSGAII_PathPlanning_DoubleObjectiveComparator implements Comparator
 		 * 					 (2)feasible: safety & angle
 		 * 						infeasible: infeasible segment percent & infeasible length percent
 		 */
-	    if(value1[0] < value2[0]) {
+	    /*if(value1[0] < value2[0]) {
 	    	return -1;
 	    }
 	    else if(value1[0] > value2[0]) {
@@ -90,6 +90,34 @@ public class NSGAII_PathPlanning_DoubleObjectiveComparator implements Comparator
 	    	}
 	    	else {
 	    		return 0;
+	    	}
+	    }*/
+	    
+	    /**
+		 * double objective: (1) length & angle
+		 * 					 (2) infeasible segment percent & infeasible length percent
+		 */
+	    if(value1[1] > 0) {
+	    	if(value2[1] == 0) {
+	    		return 1;
+	    	}
+	    	else {
+	    		return 0;
+	    	}
+	    }
+	    else {
+	    	if(value2[1] > 0) {
+	    		return -1;
+	    	}
+	    	
+	    	if(value1[0] > value2[0]) {
+	    		return 1;
+	    	}
+	    	else if(value1[0] == value2[0]) {
+	    		return 0;
+	    	}
+	    	else {
+	    		return -1;
 	    	}
 	    }
 	}

@@ -10,6 +10,7 @@ import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.util.JMException;
 import normalGA.pathPlanning.problem.Normal_GA_PathPlanning_Problem;
+import pathPlanning.operators.PathPlanning_GreedyModification;
 import pathPlanning.operators.PathPlanning_Modification;
 import pathPlanning.operators.PathPlanning_SinglePointMutation;
 import pathPlanning.operators.PathPlanning_Sort;
@@ -41,7 +42,8 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 		Crossover crossover ;
 		Mutation  mutation  ;
 		PathPlanning_Sort sort;
-		PathPlanning_Modification modification;
+		//PathPlanning_Modification modification;
+		PathPlanning_GreedyModification modification;
 
 	    HashMap  parameters ; // Operator parameters
 
@@ -66,7 +68,7 @@ public class Normal_GA_PathPlanning_Settings extends Settings{
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
-	    modification = new PathPlanning_Modification(parameters);
+	    modification = new PathPlanning_GreedyModification(parameters);
 	    
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;

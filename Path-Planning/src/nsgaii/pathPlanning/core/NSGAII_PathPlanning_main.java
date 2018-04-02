@@ -44,12 +44,12 @@ public class NSGAII_PathPlanning_main {
 	    population.printObjectivesToFile("Result_NSGAII/NSGAII_FUN");
 	    
 	    //double objective
-	    //population.sort(new NSGAII_PathPlanning_DoubleObjectiveComparator());
-	    //new DemoPainter("NSGAII", algorithm.getProblem(), population.best(new NSGAII_PathPlanning_DoubleObjectiveComparator()));
+	    population.sort(new NSGAII_PathPlanning_DoubleObjectiveComparator());
+	    new DemoPainter("NSGAII", algorithm.getProblem(), population.best(new NSGAII_PathPlanning_DoubleObjectiveComparator()));
 	
 	    //three objective
-	    population.sort(new NSGAII_PathPlanning_ThreeObjectiveComparator());
-	    new DemoPainter("NSGAII", algorithm.getProblem(), population.best(new NSGAII_PathPlanning_ThreeObjectiveComparator()));
+	    //population.sort(new NSGAII_PathPlanning_ThreeObjectiveComparator());
+	    //new DemoPainter("NSGAII", algorithm.getProblem(), population.best(new NSGAII_PathPlanning_ThreeObjectiveComparator()));
 	
 	}
 }

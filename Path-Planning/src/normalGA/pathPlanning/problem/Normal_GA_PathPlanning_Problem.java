@@ -30,7 +30,7 @@ public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {
 	}
 
 	public void evaluate(Solution solution) throws JMException {
-		double wd = 50, ws = 10, wk = 5, C = 5;
+		double wd = 50, ws = 0, wk = 0, C = 5;
 		double wl = 5.0, wc = 50.0;
 		
 		Variable[] gen = solution.getDecisionVariables();

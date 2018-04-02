@@ -21,8 +21,8 @@ public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
 		
 		numberOfVariables_ = 10;
 		
-		numberOfObjectives_ = 3;
-		//numberOfObjectives_ = 2;
+		//numberOfObjectives_ = 3;
+		numberOfObjectives_ = 2;
 		numberOfConstraints_ = 0;
 		problemName_ = "Path Planning";
 		
@@ -82,13 +82,13 @@ public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
 		 * 					(2)infeasible segment percent & infeasible length percent
 		 * 					(3)angle
 		 */
-		f[0] = pathLength;
+		/*f[0] = pathLength;
 		f[1] = 10 * pathInfeasiblePercent[0] + 100 * pathInfeasiblePercent[1];
 		f[2] = pathAngle;
 		
 		solution.setObjective(0, f[0]);
 		solution.setObjective(1, f[1]);
-		solution.setObjective(2, f[2]);
+		solution.setObjective(2, f[2]);*/
 		
 		/**
 		 * double objective: (1)length
@@ -109,5 +109,17 @@ public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
 		
 		solution.setObjective(0, f[0]);
 		solution.setObjective(1, f[1]);*/
+		
+		/**
+		 * double objective: (1) length & angle
+		 * 					 (2) infeasible segment percent & infeasible length percent
+		 */
+		//f[0] = 4 * pathLength + pathAngle;
+		f[0] = pathLength;
+		f[1] = 10 * pathInfeasiblePercent[0] + 100 * pathInfeasiblePercent[1];
+		
+		solution.setObjective(0, f[0]);
+		solution.setObjective(1, f[1]);
+		solution.setFitness(pathLength);
 	} 
 }

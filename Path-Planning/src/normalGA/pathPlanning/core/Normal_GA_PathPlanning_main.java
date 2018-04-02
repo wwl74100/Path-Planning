@@ -27,7 +27,7 @@ public class Normal_GA_PathPlanning_main {
 	    fileHandler_ = new FileHandler("Result_CGA/CGA_main.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map5.txt");
+	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map3.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm

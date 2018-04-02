@@ -13,7 +13,7 @@ public class PathPlanning_Modification extends Operator {
 		super(parameters);
 	}
 	
-	public void doMutation(Solution solution) throws JMException { 
+	public void doModification(Solution solution) throws JMException { 
 		PathPlanning_Problem problem_ = ((PathPlanning_Problem)(solution.getProblem()));
 		int numberOfVariables_ = solution.numberOfVariables();
 		int mapColumn_ = problem_.getMapColumn();
@@ -57,7 +57,7 @@ public class PathPlanning_Modification extends Operator {
 	
 	public Object execute(Object object) throws JMException {
 		Solution solution = (Solution)object;
-		doMutation(solution);
+		doModification(solution);
 		return solution; 
 	}
 }
