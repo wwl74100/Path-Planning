@@ -13,12 +13,19 @@ import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.util.JMException;
 import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
-import pathPlanning.operators.PathPlanning_GreedyModification;
-import pathPlanning.operators.PathPlanning_Modification;
+import pathPlanning.operators.PathPlanning_DynamicModification;
+import pathPlanning.operators.PathPlanning_NormalModification;
 import pathPlanning.operators.PathPlanning_SinglePointMutation;
 import pathPlanning.operators.PathPlanning_Sort;
 import pathPlanning.operators.PathPlanning_TwoPointCrossover;
 
+/**
+ * 
+ * @author X.K.T
+ * @class NSGAII_PathPlanning_Settings
+ * @brief Settings class of algorithm NSGA-II
+ *
+ */
 public class NSGAII_PathPlanning_Settings extends Settings {
 	public int populationSize_                 ;
 	public int maxEvaluations_                 ;
@@ -27,6 +34,10 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	public double mutationDistributionIndex_   ;
 	public double crossoverDistributionIndex_  ;
 
+	/**
+	 * @brief Constructor
+	 * @param fileName: Name of map file
+	 */
 	public NSGAII_PathPlanning_Settings(String fileName) {
 		super();
 		problem_ = new NSGAII_PathPlanning_Problem(fileName);
@@ -39,6 +50,11 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	    crossoverDistributionIndex_  = 20.0  ;
 	} // NSGAII_Settings
 
+	/**
+	 * @brief Configure NSGAII with default parameter experiments.settings
+	 * @return A NSGAII algorithm object
+	 * @throws jmetal.util.JMException
+	 */
 	public Algorithm configure() throws JMException {
 		Algorithm algorithm ;
 		Selection selection ;
@@ -46,7 +62,7 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 		Mutation  mutation  ;
 		PathPlanning_Sort sort;
 		//PathPlanning_Modification modification;
-		PathPlanning_GreedyModification modification;
+		PathPlanning_DynamicModification modification;
 
 	    HashMap  parameters ; // Operator parameters
 
@@ -74,7 +90,7 @@ public class NSGAII_PathPlanning_Settings extends Settings {
 	    parameters.put("probability", mutationProbability_) ;
 	    parameters.put("distributionIndex", mutationDistributionIndex_) ;
 	    //modification = new PathPlanning_Modification(parameters);
-	    modification = new PathPlanning_GreedyModification(parameters);
+	    modification = new PathPlanning_DynamicModification(parameters);
 	    
 	    parameters = new HashMap() ;
 	    parameters.put("probability", mutationProbability_) ;

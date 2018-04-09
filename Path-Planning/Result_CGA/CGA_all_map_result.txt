@@ -1,0 +1,436 @@
+
+map/map0.txt
+    CGA average excution time: 630ms
+    CGA shortest path length : 30.844350890410592
+    CGA average path length  : 31.697630491521213
+    CGA infeasible rate      : 0.0
+map/map1.txt
+    CGA average excution time: 239ms
+    CGA shortest path length : 26.270028774711626
+    CGA average path length  : 28.34017664989298
+    CGA infeasible rate      : 0.0
+map/map2.txt
+    CGA average excution time: 357ms
+    CGA shortest path length : 35.43377400895888
+    CGA average path length  : 38.662566665168576
+    CGA infeasible rate      : 0.0
+map/map3.txt
+    CGA average excution time: 452ms
+    CGA shortest path length : 22.54860557728518
+    CGA average path length  : 26.733897420948395
+    CGA infeasible rate      : 0.0
+map/map4.txt
+    CGA average excution time: 434ms
+    CGA shortest path length : 22.583223860065875
+    CGA average path length  : 26.70880747487548
+    CGA infeasible rate      : 0.0
+map/map5.txt
+    CGA average excution time: 389ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map6.txt
+    CGA average excution time: 565ms
+    CGA shortest path length : 27.95201902728488
+    CGA average path length  : 30.017731204998018
+    CGA infeasible rate      : 0.05
+map/map7.txt
+    CGA average excution time: 589ms
+    CGA shortest path length : 27.945399608686785
+    CGA average path length  : 28.90545217880413
+    CGA infeasible rate      : 0.83
+map/map8.txt
+    CGA average excution time: 621ms
+    CGA shortest path length : 29.419464739989586
+    CGA average path length  : 30.212340149658385
+    CGA infeasible rate      : 0.44
+map/map9.txt
+    CGA average excution time: 660ms
+    CGA shortest path length : 28.161714046033413
+    CGA average path length  : 30.08250572752768
+    CGA infeasible rate      : 0.27
+map/map10.txt
+    CGA average excution time: 470ms
+    CGA shortest path length : 30.679454811721705
+    CGA average path length  : 32.42962355033563
+    CGA infeasible rate      : 0.92
+map/map11.txt
+    CGA average excution time: 561ms
+    CGA shortest path length : 28.74750048366032
+    CGA average path length  : 31.69527632341324
+    CGA infeasible rate      : 0.79
+map/map12.txt
+    CGA average excution time: 408ms
+    CGA shortest path length : 35.40491834728766
+    CGA average path length  : 35.40491834728766
+    CGA infeasible rate      : 0.99
+map/map13.txt
+    CGA average excution time: 455ms
+    CGA shortest path length : 28.97561228867536
+    CGA average path length  : 29.180970102896083
+    CGA infeasible rate      : 0.98
+map/map14.txt
+    CGA average excution time: 623ms
+    CGA shortest path length : 27.66409786382267
+    CGA average path length  : 30.031266207740376
+    CGA infeasible rate      : 0.56
+map/map15.txt
+    CGA average excution time: 447ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map16.txt
+    CGA average excution time: 591ms
+    CGA shortest path length : 28.617154012101373
+    CGA average path length  : 29.281353471910457
+    CGA infeasible rate      : 0.15
+map/map17.txt
+    CGA average excution time: 517ms
+    CGA shortest path length : 27.654864560862315
+    CGA average path length  : 29.729895892451157
+    CGA infeasible rate      : 0.52
+map/map18.txt
+    CGA average excution time: 644ms
+    CGA shortest path length : 29.94037850533386
+    CGA average path length  : 31.027177861660938
+    CGA infeasible rate      : 0.95
+map/map19.txt
+    CGA average excution time: 663ms
+    CGA shortest path length : 27.054822688560204
+    CGA average path length  : 27.874103030097206
+    CGA infeasible rate      : 0.13
+map/map20.txt
+    CGA average excution time: 529ms
+    CGA shortest path length : 28.418223694431564
+    CGA average path length  : 29.47979445698719
+    CGA infeasible rate      : 0.24
+map/map21.txt
+    CGA average excution time: 484ms
+    CGA shortest path length : 28.370459992411877
+    CGA average path length  : 31.357877143498264
+    CGA infeasible rate      : 0.0
+map/map22.txt
+    CGA average excution time: 603ms
+    CGA shortest path length : 28.45739572898228
+    CGA average path length  : 31.08013770914277
+    CGA infeasible rate      : 0.21
+map/map23.txt
+    CGA average excution time: 636ms
+    CGA shortest path length : 28.897745755438816
+    CGA average path length  : 29.83517035501607
+    CGA infeasible rate      : 0.64
+map/map24.txt
+    CGA average excution time: 692ms
+    CGA shortest path length : 28.944038763337662
+    CGA average path length  : 36.398970306759885
+    CGA infeasible rate      : 0.13
+map/map25.txt
+    CGA average excution time: 512ms
+    CGA shortest path length : 27.636561186666725
+    CGA average path length  : 28.9178131515483
+    CGA infeasible rate      : 0.76
+map/map26.txt
+    CGA average excution time: 625ms
+    CGA shortest path length : 27.910786718955915
+    CGA average path length  : 28.843929570833417
+    CGA infeasible rate      : 0.05
+map/map27.txt
+    CGA average excution time: 609ms
+    CGA shortest path length : 31.06396689940569
+    CGA average path length  : 32.1924355244185
+    CGA infeasible rate      : 0.83
+map/map28.txt
+    CGA average excution time: 661ms
+    CGA shortest path length : 27.74388623743873
+    CGA average path length  : 28.9929519085854
+    CGA infeasible rate      : 0.16
+map/map29.txt
+    CGA average excution time: 533ms
+    CGA shortest path length : 26.870057685088806
+    CGA average path length  : 26.8700576850888
+    CGA infeasible rate      : 0.0
+map/map30.txt
+    CGA average excution time: 760ms
+    CGA shortest path length : 29.681958058103806
+    CGA average path length  : 31.077708786225415
+    CGA infeasible rate      : 0.33
+map/map31.txt
+    CGA average excution time: 707ms
+    CGA shortest path length : 27.397968439067824
+    CGA average path length  : 28.842202047320008
+    CGA infeasible rate      : 0.13
+map/map32.txt
+    CGA average excution time: 743ms
+    CGA shortest path length : 27.84104434114489
+    CGA average path length  : 29.299875841734263
+    CGA infeasible rate      : 0.61
+map/map33.txt
+    CGA average excution time: 514ms
+    CGA shortest path length : 29.096456936031757
+    CGA average path length  : 31.120704353423804
+    CGA infeasible rate      : 0.83
+map/map34.txt
+    CGA average excution time: 444ms
+    CGA shortest path length : 27.277698537842404
+    CGA average path length  : 27.528839589556014
+    CGA infeasible rate      : 0.28
+map/map35.txt
+    CGA average excution time: 547ms
+    CGA shortest path length : 29.771492724251306
+    CGA average path length  : 31.147793423182538
+    CGA infeasible rate      : 0.91
+map/map36.txt
+    CGA average excution time: 580ms
+    CGA shortest path length : 28.735489223059485
+    CGA average path length  : 29.646634990580722
+    CGA infeasible rate      : 0.3
+map/map37.txt
+    CGA average excution time: 500ms
+    CGA shortest path length : 28.287530857284807
+    CGA average path length  : 29.560726700938385
+    CGA infeasible rate      : 0.75
+map/map38.txt
+    CGA average excution time: 582ms
+    CGA shortest path length : 30.11782038102134
+    CGA average path length  : 33.13411817100657
+    CGA infeasible rate      : 0.39
+map/map39.txt
+    CGA average excution time: 624ms
+    CGA shortest path length : 27.730446831456966
+    CGA average path length  : 28.607990091378145
+    CGA infeasible rate      : 0.27
+map/map40.txt
+    CGA average excution time: 646ms
+    CGA shortest path length : 27.36890838614531
+    CGA average path length  : 28.105190664512268
+    CGA infeasible rate      : 0.05
+map/map41.txt
+    CGA average excution time: 639ms
+    CGA shortest path length : 27.879213193618213
+    CGA average path length  : 29.86939102674322
+    CGA infeasible rate      : 0.12
+map/map42.txt
+    CGA average excution time: 585ms
+    CGA shortest path length : 28.781134282776264
+    CGA average path length  : 32.70536917991809
+    CGA infeasible rate      : 0.12
+map/map43.txt
+    CGA average excution time: 562ms
+    CGA shortest path length : 27.924620268940107
+    CGA average path length  : 30.634313232622823
+    CGA infeasible rate      : 0.44
+map/map44.txt
+    CGA average excution time: 525ms
+    CGA shortest path length : 29.637513109249763
+    CGA average path length  : 31.182471840726393
+    CGA infeasible rate      : 0.94
+map/map45.txt
+    CGA average excution time: 680ms
+    CGA shortest path length : 28.7863600346243
+    CGA average path length  : 29.774454762476154
+    CGA infeasible rate      : 0.21
+map/map46.txt
+    CGA average excution time: 632ms
+    CGA shortest path length : 28.698531518813596
+    CGA average path length  : 32.01868736518186
+    CGA infeasible rate      : 0.31
+map/map47.txt
+    CGA average excution time: 532ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map48.txt
+    CGA average excution time: 768ms
+    CGA shortest path length : 29.004121979765745
+    CGA average path length  : 30.32919612088699
+    CGA infeasible rate      : 0.27
+map/map49.txt
+    CGA average excution time: 635ms
+    CGA shortest path length : 29.072091215291753
+    CGA average path length  : 29.28662434208471
+    CGA infeasible rate      : 0.97
+map/map50.txt
+    CGA average excution time: 752ms
+    CGA shortest path length : 29.125096799826657
+    CGA average path length  : 30.17143155301487
+    CGA infeasible rate      : 0.51
+map/map51.txt
+    CGA average excution time: 653ms
+    CGA shortest path length : 28.783121948518406
+    CGA average path length  : 29.367102415411694
+    CGA infeasible rate      : 0.98
+map/map52.txt
+    CGA average excution time: 531ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map53.txt
+    CGA average excution time: 700ms
+    CGA shortest path length : 27.5071938057227
+    CGA average path length  : 28.195159131415625
+    CGA infeasible rate      : 0.21
+map/map54.txt
+    CGA average excution time: 700ms
+    CGA shortest path length : 28.249373324643688
+    CGA average path length  : 29.074045508779328
+    CGA infeasible rate      : 0.62
+map/map55.txt
+    CGA average excution time: 679ms
+    CGA shortest path length : 29.74768963104136
+    CGA average path length  : 30.307483364393015
+    CGA infeasible rate      : 0.38
+map/map56.txt
+    CGA average excution time: 713ms
+    CGA shortest path length : 27.523957741192216
+    CGA average path length  : 28.406164336532548
+    CGA infeasible rate      : 0.2
+map/map57.txt
+    CGA average excution time: 657ms
+    CGA shortest path length : 29.37800586586392
+    CGA average path length  : 31.285854324994332
+    CGA infeasible rate      : 0.56
+map/map58.txt
+    CGA average excution time: 611ms
+    CGA shortest path length : 27.32417812173641
+    CGA average path length  : 28.869885617880875
+    CGA infeasible rate      : 0.16
+map/map59.txt
+    CGA average excution time: 751ms
+    CGA shortest path length : 29.126069963659198
+    CGA average path length  : 29.419494346614712
+    CGA infeasible rate      : 0.59
+map/map60.txt
+    CGA average excution time: 692ms
+    CGA shortest path length : 27.84104434114489
+    CGA average path length  : 29.097739477728805
+    CGA infeasible rate      : 0.6
+map/map61.txt
+    CGA average excution time: 633ms
+    CGA shortest path length : 27.98865318415943
+    CGA average path length  : 30.968714872433164
+    CGA infeasible rate      : 0.01
+map/map62.txt
+    CGA average excution time: 630ms
+    CGA shortest path length : 27.952019027284877
+    CGA average path length  : 29.27800914682716
+    CGA infeasible rate      : 0.81
+map/map63.txt
+    CGA average excution time: 743ms
+    CGA shortest path length : 27.5043449737534
+    CGA average path length  : 29.85677063753796
+    CGA infeasible rate      : 0.21
+map/map64.txt
+    CGA average excution time: 740ms
+    CGA shortest path length : 30.240589086364146
+    CGA average path length  : 31.22990218633289
+    CGA infeasible rate      : 0.95
+map/map65.txt
+    CGA average excution time: 517ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map66.txt
+    CGA average excution time: 431ms
+    CGA shortest path length : 28.767451737032026
+    CGA average path length  : 29.553595436102917
+    CGA infeasible rate      : 0.96
+map/map67.txt
+    CGA average excution time: 506ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map68.txt
+    CGA average excution time: 721ms
+    CGA shortest path length : 28.043193464293108
+    CGA average path length  : 28.830536613197435
+    CGA infeasible rate      : 0.1
+map/map69.txt
+    CGA average excution time: 644ms
+    CGA shortest path length : 30.11852409020716
+    CGA average path length  : 31.514443349708266
+    CGA infeasible rate      : 0.92
+map/map70.txt
+    CGA average excution time: 642ms
+    CGA shortest path length : 27.23296827343351
+    CGA average path length  : 29.178198335465563
+    CGA infeasible rate      : 0.0
+map/map71.txt
+    CGA average excution time: 583ms
+    CGA shortest path length : 28.561756389573997
+    CGA average path length  : 30.35889399391231
+    CGA infeasible rate      : 0.67
+map/map72.txt
+    CGA average excution time: 595ms
+    CGA shortest path length : 28.08246404993162
+    CGA average path length  : 28.923591847822404
+    CGA infeasible rate      : 0.1
+map/map73.txt
+    CGA average excution time: 621ms
+    CGA shortest path length : 28.709331631186995
+    CGA average path length  : 29.312919876695027
+    CGA infeasible rate      : 0.68
+map/map74.txt
+    CGA average excution time: 704ms
+    CGA shortest path length : 31.384533807261988
+    CGA average path length  : 33.53081517957314
+    CGA infeasible rate      : 0.62
+map/map75.txt
+    CGA average excution time: 768ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map76.txt
+    CGA average excution time: 728ms
+    CGA shortest path length : 27.378005865863916
+    CGA average path length  : 28.72013874110877
+    CGA infeasible rate      : 0.06
+map/map77.txt
+    CGA average excution time: 608ms
+    CGA shortest path length : 30.102982483195962
+    CGA average path length  : 31.431382125463582
+    CGA infeasible rate      : 0.55
+map/map78.txt
+    CGA average excution time: 668ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map79.txt
+    CGA average excution time: 634ms
+    CGA shortest path length : 32.1526052464826
+    CGA average path length  : 32.55823681456517
+    CGA infeasible rate      : 0.91
+map/map80.txt
+    CGA average excution time: 574ms
+    CGA shortest path length : 29.2081823322435
+    CGA average path length  : 31.28280248282557
+    CGA infeasible rate      : 0.3
+map/map81.txt
+    CGA average excution time: 625ms
+    CGA shortest path length : 29.051920227510184
+    CGA average path length  : 30.153261937547107
+    CGA infeasible rate      : 0.55
+map/map82.txt
+    CGA average excution time: 669ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0
+map/map83.txt
+    CGA average excution time: 746ms
+    CGA shortest path length : 29.6395007749919
+    CGA average path length  : 29.795378161756037
+    CGA infeasible rate      : 0.84
+map/map84.txt
+    CGA average excution time: 683ms
+    CGA shortest path length : 27.754073193279815
+    CGA average path length  : 30.72440732268947
+    CGA infeasible rate      : 0.18
+map/map85.txt
+    CGA average excution time: 606ms
+    CGA shortest path length : 29.35961317105988
+    CGA average path length  : 31.323425349069318
+    CGA infeasible rate      : 0.5
+map/map86.txt
+    CGA average excution time: 462ms
+    CGA shortest path length : 1.7976931348623157E308
+    CGA average path length  : 0.0
+    CGA infeasible rate      : 1.0

@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 import jdk.internal.org.objectweb.asm.util.CheckAnnotationAdapter;
 
-public class Test {	
+public class Test_PathPlanning_Part {	
 	public static Logger      logger_ ;      // Logger object
 	public static FileHandler fileHandler_ ; // FileHandler object	
 	

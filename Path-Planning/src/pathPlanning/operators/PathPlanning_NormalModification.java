@@ -8,11 +8,27 @@ import jmetal.core.Variable;
 import jmetal.util.JMException;
 import pathPlanning.problem.PathPlanning_Problem;
 
-public class PathPlanning_Modification extends Operator {
-	public PathPlanning_Modification(HashMap<String, Object> parameters) {
+/**
+ * 
+ * @author X.K.T
+ * @class PathPlanning_NormalModification
+ * @brief The normal modification operator
+ *
+ */
+public class PathPlanning_NormalModification extends Operator {
+	/**
+	 * Constructor
+	 * @param parameters: useless
+	 */
+	public PathPlanning_NormalModification(HashMap<String, Object> parameters) {
 		super(parameters);
 	}
 	
+	/**
+	 * @brief Normal modification operator
+	 * @param solution: Solution to modify
+	 * @throws JMException
+	 */
 	public void doModification(Solution solution) throws JMException { 
 		PathPlanning_Problem problem_ = ((PathPlanning_Problem)(solution.getProblem()));
 		int numberOfVariables_ = solution.numberOfVariables();
@@ -55,6 +71,11 @@ public class PathPlanning_Modification extends Operator {
 		*/
 	}
 	
+	/**
+	 * @brief Execute the modification operator
+	 * @param object: Solution to modify
+	 * @return modified solution
+	 */
 	public Object execute(Object object) throws JMException {
 		Solution solution = (Solution)object;
 		doModification(solution);

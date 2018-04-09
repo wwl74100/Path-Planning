@@ -12,7 +12,13 @@ import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
-
+/**
+ * 
+ * @author X.K.T
+ * @class Normal_GA_PathPlanning_main
+ * @brief Execute normal GA
+ *
+ */
 public class Normal_GA_PathPlanning_main {
 	public static Logger      logger_ ;      // Logger object
 	public static FileHandler fileHandler_ ; // FileHandler object	
@@ -27,7 +33,7 @@ public class Normal_GA_PathPlanning_main {
 	    fileHandler_ = new FileHandler("Result_CGA/CGA_main.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map3.txt");
+	    Normal_GA_PathPlanning_Settings settings = new Normal_GA_PathPlanning_Settings("map/map0.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm

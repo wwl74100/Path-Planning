@@ -6,11 +6,27 @@ import jmetal.core.Operator;
 import jmetal.core.Solution;
 import jmetal.util.JMException;
 
+/**
+ * 
+ * @author X.K.T
+ * @class PathPlanning_Sort
+ * @brief Sort the chromosome from small to large
+ *
+ */
 public class PathPlanning_Sort extends Operator {
+	/**
+	 * @brief Constructor
+	 * @param parameters: useless
+	 */
 	public PathPlanning_Sort(HashMap<String, Object> parameters) {
 		super(parameters);
 	}
 	
+	/**
+	 * @brief Do sort operator
+	 * @param solution
+	 * @throws JMException
+	 */
 	public void doSort(Solution solution) throws JMException {
 		int numberOfVariables_ = solution.numberOfVariables();
 		
@@ -31,6 +47,11 @@ public class PathPlanning_Sort extends Operator {
 		}
 	}
 	
+	/**
+	 * @brief Execute the sort operator
+	 * @param object: Solution to sort
+	 * @return Sorted solution
+	 */
 	public Object execute(Object object) throws JMException {
 		Solution solution = (Solution)object;
 		doSort(solution);

@@ -11,13 +11,24 @@ import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 import nsgaii.pathPlanning.problem.NSGAII_PathPlanning_Problem;
 
+/**
+ * 
+ * @author X.K.T
+ * @class PathPlanning_SinglePointMutation
+ * @brief Single point mutation
+ *
+ */
 public class PathPlanning_SinglePointMutation extends Mutation {
-	private static final double ETA_M_DEFAULT_ = 20.0;
-	private final double eta_m_=ETA_M_DEFAULT_;
+	private static final double ETA_M_DEFAULT_ = 20.0; //useless in path-planning problem
+	private final double eta_m_=ETA_M_DEFAULT_; //useless in path-planning problem
 	
-	private Double mutationProbability_ = null;
-	private Double distributionIndex_ = eta_m_;
-
+	private Double mutationProbability_ = null; //mutation probability
+	private Double distributionIndex_ = eta_m_; //useless in path-planning problem
+	
+	/**
+	 * @brief Constructor
+	 * @param parameters: useless in path-planning problem except probability
+	 */
 	public PathPlanning_SinglePointMutation(HashMap<String, Object> parameters) {
 		super(parameters);
 		if (parameters.get("probability") != null)
@@ -26,6 +37,12 @@ public class PathPlanning_SinglePointMutation extends Mutation {
 	  		distributionIndex_ = (Double) parameters.get("distributionIndex") ;  
 	}
 	
+	/**
+	 * @brief Do mutation
+	 * @param probability: Mutation probability
+	 * @param solution: Solution to mutate
+	 * @throws JMException
+	 */
 	public void doMutation(double probability, Solution solution) throws JMException {
 		try {
 			if (PseudoRandom.randDouble() < probability) {
@@ -58,6 +75,11 @@ public class PathPlanning_SinglePointMutation extends Mutation {
 		}
 	}
 	
+	/**
+	 * @brief Execute the modification operator
+	 * @param object: Solution to mutate
+	 * @return mutated solution
+	 */
 	public Object execute(Object object) throws JMException {
 		Solution solution = (Solution)object;
 		doMutation(mutationProbability_, solution);

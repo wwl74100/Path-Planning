@@ -7,8 +7,17 @@ import jmetal.core.Variable;
 import jmetal.util.JMException;
 import pathPlanning.solution.PathPlanning_SolutionType;
 
+/**
+ * 
+ * @author X.K.T
+ * @class  PathPlanning_Problem
+ * @brief  Class to define the path-planning problem
+ * 		   Read and store the path-planning map information
+ * 		   Implement all the evaluation metrics  
+ *
+ */
 public abstract class PathPlanning_Problem extends Problem {
-	private double bias = 0.00001;
+	private double bias = 0.00001; //the threshold of two double values
 	
 	protected int mapSize_;         // map size
 	protected int mapRow_;          // map row number
@@ -18,6 +27,10 @@ public abstract class PathPlanning_Problem extends Problem {
 	private char[] mapVector_;    // map info vector
 	private char[][] mapMatrix_;  // map info matrix
 	
+	/**
+	 * @brief Get the path-planning map information
+	 * @param fileName: The name of the map file 
+	 */
 	protected void getMapInfo(String fileName) {
 		DataHandler dataHandler = new DataHandler(fileName);
 		mapSize_        = dataHandler.getMapSize();
@@ -29,6 +42,10 @@ public abstract class PathPlanning_Problem extends Problem {
 		mapMatrix_      = dataHandler.getMapMatrix();
 	}
 	
+	/**
+	 * @brief Constructor
+	 * @param fileName: The name of the map file 
+	 */
 	public PathPlanning_Problem(String fileName) {
 		getMapInfo(fileName);
 		
@@ -53,11 +70,11 @@ public abstract class PathPlanning_Problem extends Problem {
 	public abstract void evaluate(Solution solution) throws JMException; 
 	
 	/**
-	 * check the path is feasible or not
-	 * @param x
-	 * @param y
-	 * @return : true : path is feasible
-	 * 			 false : path is infeasible
+	 * @brief Check the path is feasible or not
+	 * @param x: The x coordinates of the chromosome
+	 * @param y: The y coordinates of the chromosome
+	 * @return true:  Path is feasible
+	 * 		   false: Path is infeasible
 	 * @throws JMException
 	 */
 	protected boolean checkPathFeasible(double[] x, double[] y) throws JMException {
@@ -70,12 +87,12 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * get the infeasible percent of the path
-	 * @param x
-	 * @param y
-	 * @param pathLength : the total length of the path
-	 * @return : double[0] is the percent of infeasible segment number
-	 * 			 double[1] is the percent of infeasible segment length
+	 * @brief Get the infeasible percent of the path
+	 * @param x: The x coordinates of the chromosome 
+	 * @param y: The y coordinates of the chromosome
+	 * @param pathLength: The total length of the path
+	 * @return double[0]: The percent of infeasible segment number
+	 * 		   double[1]: The percent of infeasible segment length
 	 * @throws JMException
 	 */
 	protected double[] getPathInfeasiblePercent(double[] x, double[] y, double pathLength) throws JMException {	
@@ -103,10 +120,10 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * get the total length of a path
-	 * @param x : the x coordinates of the points on the path
-	 * @param y : the y coordinates of the points on the path
-	 * @return : the total path length
+	 * @brief Get the total length of a path
+	 * @param x: The x coordinates of the points on the path
+	 * @param y: The y coordinates of the points on the path
+	 * @return The total path length
 	 * @throws JMException
 	 */
 	protected double getPathLength(double[] x, double[] y) throws JMException {		
@@ -120,11 +137,11 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * get the total angle of a path
-	 * @param gen : the path
-	 * @param x : the x coordinates of the points on the path
-	 * @param y : the y coordinates of the points on the path
-	 * @return : the total path angle
+	 * @brief Get the total angle of a path
+	 * @param gen: The path
+	 * @param x: The x coordinates of the points on the path
+	 * @param y: The y coordinates of the points on the path
+	 * @return The total path angle
 	 * @throws JMException
 	 */
 	protected double getPathAngle(Variable[] gen, double[] x, double[] y) throws JMException {
@@ -152,11 +169,11 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * get the safety of a path
-	 * @param gen : the path
-	 * @param x : the x coordinates of the points on the path
-	 * @param y : the y coordinates of the points on the path
-	 * @return : the total path safety
+	 * @brief Get the total safety of a path
+	 * @param gen: The path
+	 * @param x: The x coordinates of the points on the path
+	 * @param y: The y coordinates of the points on the path
+	 * @return The total path safety
 	 * @throws JMException
 	 */
 	protected double getPathSafety(Variable gen[], double[] x, double[] y) throws JMException {
@@ -179,22 +196,22 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * get the length of a segment (x1, y1) ~ (x2, y2)
+	 * @brief Get the length of a segment (x1, y1) ~ (x2, y2)
 	 * @param x1
 	 * @param y1
 	 * @param x2
 	 * @param y2
-	 * @return : the segment length
+	 * @return The segment length
 	 */
 	public double getLengthOfSeg(double x1, double y1, double x2, double y2) {
 		return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
 	
 	/**
-	 * get the angle between vector (x, y) and the x axis
+	 * @brief Get the angle between vector (x, y) and the x axis
 	 * @param x
 	 * @param y
-	 * @return
+	 * @return The angle of the vector 
 	 */
 	private double getAngleOfVector(double x, double y) {
 		if(x == 0) {
@@ -214,12 +231,12 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * if the segment is feasible, get its safety
+	 * @brief If the segment is feasible, get its safety
 	 * @param x1
 	 * @param y1
 	 * @param x2
 	 * @param y2
-	 * @return : the safety of the segment
+	 * @return : The safety of the segment
 	 */
 	public double getSafetyOfSeg(int x1, int y1, int x2, int y2) {
 		int maxX = Math.max(x1, x2), minX = Math.min(x1, x2);
@@ -297,7 +314,7 @@ public abstract class PathPlanning_Problem extends Problem {
 	}
 	
 	/**
-	 * check if the segment is in an obstacle
+	 * @brief Check whether the segment is in an obstacle
 	 * @param x1 : segment point x1
 	 * @param y1 : segment point y1
 	 * @param x2 : segment point x2

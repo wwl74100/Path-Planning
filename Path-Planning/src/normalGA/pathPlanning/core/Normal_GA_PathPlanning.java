@@ -8,13 +8,27 @@ import jmetal.util.Ranking;
 import jmetal.util.comparators.CrowdingComparator;
 import normalGA.pathPlanning.comparator.Normal_GA_PathPlanning_Comparator;
 
+/**
+ * 
+ * @author X.K.T
+ * @class Normal_GA_PathPlanning 
+ * @brief Implement normal GA 
+ *
+ */
 public class Normal_GA_PathPlanning extends Algorithm {
 	private int eliteOffSpringNumber_ = 10;
 	
+	/**
+	 * @brief Constructor 
+	 * @param problem
+	 */
 	public Normal_GA_PathPlanning(Problem problem) {
 		super(problem);
 	}
 	
+	/**
+	 * @brief Execute normal GA
+	 */
 	public SolutionSet execute() throws JMException, ClassNotFoundException {
 		int populationSize;
 	    int maxEvaluations;

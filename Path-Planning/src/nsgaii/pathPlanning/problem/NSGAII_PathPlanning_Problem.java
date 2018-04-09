@@ -11,11 +11,17 @@ import pathPlanning.problem.PathPlanning_Problem;
 import pathPlanning.solution.PathPlanning_SolutionType;
 
 /**
- * Class representing the Path-Planning problem for NSGA-II
+ * 
  * @author X.K.T
+ * @class NSGAII_PathPlanning_Problem
+ * @brief Class representing the Path-Planning problem for NSGA-II
  *
  */
 public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
+	/**
+	 * @brief Constructor
+	 * @param fileName: Map file name
+	 */
 	public NSGAII_PathPlanning_Problem(String fileName) {
 		super(fileName);
 		
@@ -40,8 +46,8 @@ public class NSGAII_PathPlanning_Problem extends PathPlanning_Problem {
 	}
 	
 	/** 
-	 * Evaluates a solution.
-	 * @param solution The solution to evaluate.
+	 * @brief Evaluates a solution.
+	 * @param solution: The solution to evaluate.
 	 * @throws JMException 
 	 */
 	public void evaluate(Solution solution) throws JMException {

@@ -18,7 +18,14 @@ import nsgaii.pathPlanning.core.NSGAII_PathPlanning_Settings;
 import pathPlanning.demo.DemoPainter;
 import pathPlanning.problem.PathPlanning_Problem;
 
-public class Test_PathPlanning_Result {
+/**
+ * 
+ * @author X.K.T
+ * @class Test_PathPlanning_TypicalMap
+ * @brief Test CGA and NSGAII on four typical maps
+ *
+ */
+public class Test_PathPlanning_TypicalMap {
 	public static Logger      logger_ ;      // Logger object
 	public static FileHandler fileHandler_ ; // FileHandler object	
 	public static int Iteration = 1000;
@@ -43,6 +50,9 @@ public class Test_PathPlanning_Result {
 		CGA_Best.clear();
 		for(int i = 0; i < Iteration; ++ i) {
 			//System.out.println(i);
+			if(i % 100 == 0) {
+				System.out.println(i);
+			}
 			initTime = System.currentTimeMillis();
 			SolutionSet population = CGA_Algorithm.execute();
 			totalTime += System.currentTimeMillis() - initTime;	
@@ -94,6 +104,9 @@ public class Test_PathPlanning_Result {
 		NSGAII_Best.clear();
 		for(int i = 0; i < Iteration; ++ i) {
 			//System.out.println(i);
+			if(i % 100 == 0) {
+				System.out.println(i);
+			}
 			initTime = System.currentTimeMillis();
 			SolutionSet population = NSGAII_Algorithm.execute();
 			totalTime += System.currentTimeMillis() - initTime;	
@@ -118,7 +131,6 @@ public class Test_PathPlanning_Result {
 			}
 			
 			NSGAII_Best.add(best_solution);
-			totalTime += System.currentTimeMillis() - initTime;	
 		}
 		//NSGAII_Best.sort(new NSGAII_PathPlanning_ThreeObjectiveComparator());
 		NSGAII_Best.sort(new NSGAII_PathPlanning_DoubleObjectiveComparator());
@@ -148,7 +160,7 @@ public class Test_PathPlanning_Result {
 		String[] fileName = {"map/map0.txt", "map/map1.txt", "map/map2.txt", "map/map3.txt"};
 		Solution solution1, solution2;
 		
-		for(int k = 0; k < 4; ++ k) {
+		for(int k = 0; k < 2; ++ k) {
 			System.out.println(fileName[k]);
 			
 			System.out.println("CGA:");

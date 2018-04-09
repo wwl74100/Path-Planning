@@ -14,6 +14,13 @@ import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
+/**
+ * 
+ * @author X.K.T
+ * @class NSGAII_PathPlanning_main
+ * @brief Execute NSGAII
+ *
+ */
 public class NSGAII_PathPlanning_main {	
 	public static Logger      logger_ ;      // Logger object
 	public static FileHandler fileHandler_ ; // FileHandler object	
@@ -28,7 +35,7 @@ public class NSGAII_PathPlanning_main {
 	    fileHandler_ = new FileHandler("Result_NSGAII/NSGAII.log"); 
 	    logger_.addHandler(fileHandler_) ;
 	    
-	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map2.txt");
+	    NSGAII_PathPlanning_Settings settings = new NSGAII_PathPlanning_Settings("map/map0.txt");
 	    Algorithm algorithm = settings.configure();
 	    
 	    // Execute the Algorithm

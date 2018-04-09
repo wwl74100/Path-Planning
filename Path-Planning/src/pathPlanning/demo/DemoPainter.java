@@ -1,8 +1,10 @@
 package pathPlanning.demo;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JFrame;
 
@@ -11,6 +13,13 @@ import jmetal.core.Solution;
 import jmetal.core.Variable;
 import pathPlanning.problem.PathPlanning_Problem;
 
+/**
+ * 
+ * @author X.K.T
+ * @class DemoPainter
+ * @brief Paint the map and the path
+ *
+ */
 public class DemoPainter extends JFrame {	
 	public Problem problem_;
 	public Solution solution1_ = null;
@@ -19,6 +28,11 @@ public class DemoPainter extends JFrame {
 	public int mapColumn_;
 	public char[][] mapMatrix_;
 	
+	/**
+	 * @brief Constructor
+	 * @param title: Frame title
+	 * @param problem: Path-planning problem
+	 */
 	public DemoPainter(String title, Problem problem) {
 		this.setSize(1050, 1050); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -31,6 +45,12 @@ public class DemoPainter extends JFrame {
 		mapMatrix_ = ((PathPlanning_Problem)problem_).getMapMatrix();
 	}
 	
+	/**
+	 * @brief Constructor
+	 * @param title: Frame title
+	 * @param problem: Path-planning problem
+	 * @param solution: Path to paint
+	 */
 	public DemoPainter(String title, Problem problem, Solution solution) { 
 		this.setSize(1050, 1050); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -44,6 +64,13 @@ public class DemoPainter extends JFrame {
 		mapMatrix_ = ((PathPlanning_Problem)problem_).getMapMatrix();
 	} 
 	
+	/**
+	 * @brief Constructor
+	 * @param title
+	 * @param problem
+	 * @param solution1
+	 * @param solution2
+	 */
 	public DemoPainter(String title, Problem problem, Solution solution1, Solution solution2) {
 		this.setSize(1050, 1050); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -72,6 +99,10 @@ public class DemoPainter extends JFrame {
 		}
 	}
 	
+	/**
+	 * @brief Paint the map
+	 * @param g
+	 */
 	public void paintMap(Graphics g) {	
 		int sizeX = mapColumn_ * 40 + 40, sizeY = mapRow_ * 40 + 80; 
 		this.setSize(sizeX, sizeY);
@@ -109,7 +140,15 @@ public class DemoPainter extends JFrame {
 		}
 	}
 	
+	/**
+	 * @brief Paint the path
+	 * @param g
+	 * @param solution: Path to paint
+	 */
 	public void paintPath(Graphics g, Solution solution) {
+		Graphics2D g2 = (Graphics2D)g;
+        g2.setStroke(new BasicStroke(2.5f));
+        
 		int sizeX = mapColumn_ * 40 + 40, sizeY = mapRow_ * 40 + 80; 
 		Variable[] gen = solution.getDecisionVariables();
 		int numberOfVariables_ = solution.getProblem().getNumberOfVariables();

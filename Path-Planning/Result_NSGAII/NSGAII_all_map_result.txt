@@ -1,0 +1,431 @@
+
+map/map0.txt
+    NSGAII average excution time: 630ms
+    NSGAII shortest path length : 28.417902678206303
+    NSGAII average path length  : 28.5162396617999
+    NSGAII infeasible rate      : 0.0
+map/map1.txt
+    NSGAII average excution time: 260ms
+    NSGAII shortest path length : 20.95469482377221
+    NSGAII average path length  : 25.676391011172804
+    NSGAII infeasible rate      : 0.0
+map/map2.txt
+    NSGAII average excution time: 313ms
+    NSGAII shortest path length : 28.441153741186078
+    NSGAII average path length  : 29.60719942874261
+    NSGAII infeasible rate      : 0.0
+map/map3.txt
+    NSGAII average excution time: 557ms
+    NSGAII shortest path length : 22.38834687496627
+    NSGAII average path length  : 23.515933283505174
+    NSGAII infeasible rate      : 0.0
+map/map4.txt
+    NSGAII average excution time: 556ms
+    NSGAII shortest path length : 22.38834687496627
+    NSGAII average path length  : 24.563407767849537
+    NSGAII infeasible rate      : 0.0
+map/map5.txt
+    NSGAII average excution time: 479ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map6.txt
+    NSGAII average excution time: 605ms
+    NSGAII shortest path length : 27.95201902728488
+    NSGAII average path length  : 29.040471665438883
+    NSGAII infeasible rate      : 0.0
+map/map7.txt
+    NSGAII average excution time: 714ms
+    NSGAII shortest path length : 27.945399608686785
+    NSGAII average path length  : 29.573694797104267
+    NSGAII infeasible rate      : 0.91
+map/map8.txt
+    NSGAII average excution time: 712ms
+    NSGAII shortest path length : 29.239492032852866
+    NSGAII average path length  : 30.1958805475739
+    NSGAII infeasible rate      : 0.39
+map/map9.txt
+    NSGAII average excution time: 713ms
+    NSGAII shortest path length : 28.161714046033413
+    NSGAII average path length  : 30.213001669415174
+    NSGAII infeasible rate      : 0.23
+map/map10.txt
+    NSGAII average excution time: 643ms
+    NSGAII shortest path length : 29.57500567274592
+    NSGAII average path length  : 31.978252977961617
+    NSGAII infeasible rate      : 0.59
+map/map11.txt
+    NSGAII average excution time: 670ms
+    NSGAII shortest path length : 28.656326046652087
+    NSGAII average path length  : 33.25011540502856
+    NSGAII infeasible rate      : 0.52
+map/map12.txt
+    NSGAII average excution time: 525ms
+    NSGAII shortest path length : 29.19764984769778
+    NSGAII average path length  : 29.19764984769778
+    NSGAII infeasible rate      : 0.99
+map/map13.txt
+    NSGAII average excution time: 585ms
+    NSGAII shortest path length : 29.13536517874463
+    NSGAII average path length  : 29.44278842401934
+    NSGAII infeasible rate      : 0.98
+map/map14.txt
+    NSGAII average excution time: 696ms
+    NSGAII shortest path length : 27.988653184159432
+    NSGAII average path length  : 30.388214740767836
+    NSGAII infeasible rate      : 0.58
+map/map15.txt
+    NSGAII average excution time: 556ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map16.txt
+    NSGAII average excution time: 608ms
+    NSGAII shortest path length : 28.617154012101373
+    NSGAII average path length  : 28.85697804463257
+    NSGAII infeasible rate      : 0.04
+map/map17.txt
+    NSGAII average excution time: 605ms
+    NSGAII shortest path length : 27.654864560862315
+    NSGAII average path length  : 28.668600514582376
+    NSGAII infeasible rate      : 0.34
+map/map18.txt
+    NSGAII average excution time: 720ms
+    NSGAII shortest path length : 29.016875911259934
+    NSGAII average path length  : 30.454961473714075
+    NSGAII infeasible rate      : 0.91
+map/map19.txt
+    NSGAII average excution time: 682ms
+    NSGAII shortest path length : 27.054822688560204
+    NSGAII average path length  : 27.496726883727437
+    NSGAII infeasible rate      : 0.08
+map/map20.txt
+    NSGAII average excution time: 633ms
+    NSGAII shortest path length : 28.295227917585613
+    NSGAII average path length  : 28.869455272884025
+    NSGAII infeasible rate      : 0.1
+map/map21.txt
+    NSGAII average excution time: 640ms
+    NSGAII shortest path length : 28.370459992411877
+    NSGAII average path length  : 30.635619990323633
+    NSGAII infeasible rate      : 0.0
+map/map22.txt
+    NSGAII average excution time: 668ms
+    NSGAII shortest path length : 28.24868519389849
+    NSGAII average path length  : 29.632524958279305
+    NSGAII infeasible rate      : 0.07
+map/map23.txt
+    NSGAII average excution time: 767ms
+    NSGAII shortest path length : 28.897745755438816
+    NSGAII average path length  : 30.336664879140656
+    NSGAII infeasible rate      : 0.79
+map/map24.txt
+    NSGAII average excution time: 755ms
+    NSGAII shortest path length : 28.445223473575833
+    NSGAII average path length  : 31.938130158027377
+    NSGAII infeasible rate      : 0.03
+map/map25.txt
+    NSGAII average excution time: 643ms
+    NSGAII shortest path length : 27.636561186666725
+    NSGAII average path length  : 29.214726924233485
+    NSGAII infeasible rate      : 0.49
+map/map26.txt
+    NSGAII average excution time: 695ms
+    NSGAII shortest path length : 27.890599914297063
+    NSGAII average path length  : 28.201976321220453
+    NSGAII infeasible rate      : 0.0
+map/map27.txt
+    NSGAII average excution time: 699ms
+    NSGAII shortest path length : 31.06396689940569
+    NSGAII average path length  : 32.29072859973318
+    NSGAII infeasible rate      : 0.68
+map/map28.txt
+    NSGAII average excution time: 686ms
+    NSGAII shortest path length : 27.702758921567497
+    NSGAII average path length  : 28.84530675897856
+    NSGAII infeasible rate      : 0.29
+map/map29.txt
+    NSGAII average excution time: 524ms
+    NSGAII shortest path length : 26.870057685088806
+    NSGAII average path length  : 26.8700576850888
+    NSGAII infeasible rate      : 0.0
+map/map30.txt
+    NSGAII average excution time: 854ms
+    NSGAII shortest path length : 29.681958058103806
+    NSGAII average path length  : 30.660761525654912
+    NSGAII infeasible rate      : 0.37
+map/map31.txt
+    NSGAII average excution time: 743ms
+    NSGAII shortest path length : 27.397968439067824
+    NSGAII average path length  : 28.531193198528044
+    NSGAII infeasible rate      : 0.18
+map/map32.txt
+    NSGAII average excution time: 775ms
+    NSGAII shortest path length : 27.685339390596006
+    NSGAII average path length  : 29.159688870117744
+    NSGAII infeasible rate      : 0.55
+map/map33.txt
+    NSGAII average excution time: 651ms
+    NSGAII shortest path length : 29.25051640888018
+    NSGAII average path length  : 30.98246835657956
+    NSGAII infeasible rate      : 0.64
+map/map34.txt
+    NSGAII average excution time: 438ms
+    NSGAII shortest path length : 27.277698537842404
+    NSGAII average path length  : 27.46775708042944
+    NSGAII infeasible rate      : 0.23
+map/map35.txt
+    NSGAII average excution time: 703ms
+    NSGAII shortest path length : 30.362351653863644
+    NSGAII average path length  : 31.84823263515665
+    NSGAII infeasible rate      : 0.94
+map/map36.txt
+    NSGAII average excution time: 585ms
+    NSGAII shortest path length : 28.591795533111434
+    NSGAII average path length  : 29.130247381214044
+    NSGAII infeasible rate      : 0.28
+map/map37.txt
+    NSGAII average excution time: 584ms
+    NSGAII shortest path length : 28.148557306962218
+    NSGAII average path length  : 29.540432055217728
+    NSGAII infeasible rate      : 0.46
+map/map38.txt
+    NSGAII average excution time: 674ms
+    NSGAII shortest path length : 30.0602870469845
+    NSGAII average path length  : 33.19765308930824
+    NSGAII infeasible rate      : 0.31
+map/map39.txt
+    NSGAII average excution time: 620ms
+    NSGAII shortest path length : 27.737888181154084
+    NSGAII average path length  : 28.591241391053057
+    NSGAII infeasible rate      : 0.64
+map/map40.txt
+    NSGAII average excution time: 629ms
+    NSGAII shortest path length : 27.36890838614531
+    NSGAII average path length  : 27.577699617334982
+    NSGAII infeasible rate      : 0.0
+map/map41.txt
+    NSGAII average excution time: 703ms
+    NSGAII shortest path length : 27.76141197443828
+    NSGAII average path length  : 28.9540525752122
+    NSGAII infeasible rate      : 0.14
+map/map42.txt
+    NSGAII average excution time: 641ms
+    NSGAII shortest path length : 28.574439621786336
+    NSGAII average path length  : 31.28002879669747
+    NSGAII infeasible rate      : 0.02
+map/map43.txt
+    NSGAII average excution time: 599ms
+    NSGAII shortest path length : 27.69805538654514
+    NSGAII average path length  : 30.092475498814014
+    NSGAII infeasible rate      : 0.48
+map/map44.txt
+    NSGAII average excution time: 683ms
+    NSGAII shortest path length : 28.820306317326985
+    NSGAII average path length  : 33.31308279505946
+    NSGAII infeasible rate      : 0.71
+map/map45.txt
+    NSGAII average excution time: 776ms
+    NSGAII shortest path length : 28.402056113117425
+    NSGAII average path length  : 29.331641458662897
+    NSGAII infeasible rate      : 0.12
+map/map46.txt
+    NSGAII average excution time: 741ms
+    NSGAII shortest path length : 28.66632347396699
+    NSGAII average path length  : 31.049018643795932
+    NSGAII infeasible rate      : 0.02
+map/map47.txt
+    NSGAII average excution time: 617ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map48.txt
+    NSGAII average excution time: 818ms
+    NSGAII shortest path length : 28.240078109558254
+    NSGAII average path length  : 29.61586384435841
+    NSGAII infeasible rate      : 0.14
+map/map49.txt
+    NSGAII average excution time: 724ms
+    NSGAII shortest path length : 33.026247787156194
+    NSGAII average path length  : 33.026247787156194
+    NSGAII infeasible rate      : 0.99
+map/map50.txt
+    NSGAII average excution time: 815ms
+    NSGAII shortest path length : 28.760681314193985
+    NSGAII average path length  : 29.857257510870628
+    NSGAII infeasible rate      : 0.63
+map/map51.txt
+    NSGAII average excution time: 785ms
+    NSGAII shortest path length : 31.530404012812205
+    NSGAII average path length  : 32.199889167667656
+    NSGAII infeasible rate      : 0.96
+map/map52.txt
+    NSGAII average excution time: 801ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map53.txt
+    NSGAII average excution time: 733ms
+    NSGAII shortest path length : 27.5071938057227
+    NSGAII average path length  : 27.96559361228696
+    NSGAII infeasible rate      : 0.15
+map/map54.txt
+    NSGAII average excution time: 825ms
+    NSGAII shortest path length : 28.249373324643688
+    NSGAII average path length  : 29.094739249434287
+    NSGAII infeasible rate      : 0.88
+map/map55.txt
+    NSGAII average excution time: 769ms
+    NSGAII shortest path length : 29.072107032169033
+    NSGAII average path length  : 30.215641515069944
+    NSGAII infeasible rate      : 0.15
+map/map56.txt
+    NSGAII average excution time: 705ms
+    NSGAII shortest path length : 27.523957741192216
+    NSGAII average path length  : 28.20677309439482
+    NSGAII infeasible rate      : 0.32
+map/map57.txt
+    NSGAII average excution time: 745ms
+    NSGAII shortest path length : 29.313774555455776
+    NSGAII average path length  : 31.001460696170568
+    NSGAII infeasible rate      : 0.59
+map/map58.txt
+    NSGAII average excution time: 631ms
+    NSGAII shortest path length : 27.21982285419452
+    NSGAII average path length  : 28.24863895383059
+    NSGAII infeasible rate      : 0.06
+map/map59.txt
+    NSGAII average excution time: 763ms
+    NSGAII shortest path length : 29.021714696117307
+    NSGAII average path length  : 29.407068264451873
+    NSGAII infeasible rate      : 0.84
+map/map60.txt
+    NSGAII average excution time: 776ms
+    NSGAII shortest path length : 27.84104434114489
+    NSGAII average path length  : 29.29965879045034
+    NSGAII infeasible rate      : 0.7
+map/map61.txt
+    NSGAII average excution time: 704ms
+    NSGAII shortest path length : 27.5668188088557
+    NSGAII average path length  : 28.962338115275216
+    NSGAII infeasible rate      : 0.0
+map/map62.txt
+    NSGAII average excution time: 762ms
+    NSGAII shortest path length : 28.110399774321095
+    NSGAII average path length  : 29.042093268058053
+    NSGAII infeasible rate      : 0.81
+map/map63.txt
+    NSGAII average excution time: 795ms
+    NSGAII shortest path length : 27.368908386145307
+    NSGAII average path length  : 28.616961576751226
+    NSGAII infeasible rate      : 0.23
+map/map64.txt
+    NSGAII average excution time: 789ms
+    NSGAII shortest path length : 30.240589086364146
+    NSGAII average path length  : 31.796716887030037
+    NSGAII infeasible rate      : 0.84
+map/map65.txt
+    NSGAII average excution time: 734ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map66.txt
+    NSGAII average excution time: 551ms
+    NSGAII shortest path length : 31.891436677196623
+    NSGAII average path length  : 33.22265703924627
+    NSGAII infeasible rate      : 0.98
+map/map67.txt
+    NSGAII average excution time: 637ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map68.txt
+    NSGAII average excution time: 793ms
+    NSGAII shortest path length : 28.043193464293108
+    NSGAII average path length  : 28.54530233774727
+    NSGAII infeasible rate      : 0.14
+map/map69.txt
+    NSGAII average excution time: 817ms
+    NSGAII shortest path length : 30.296669675080466
+    NSGAII average path length  : 30.846876024150788
+    NSGAII infeasible rate      : 0.98
+map/map70.txt
+    NSGAII average excution time: 739ms
+    NSGAII shortest path length : 27.23296827343351
+    NSGAII average path length  : 28.032133648351014
+    NSGAII infeasible rate      : 0.0
+map/map71.txt
+    NSGAII average excution time: 688ms
+    NSGAII shortest path length : 28.119497254039704
+    NSGAII average path length  : 30.126020189369804
+    NSGAII infeasible rate      : 0.68
+map/map72.txt
+    NSGAII average excution time: 693ms
+    NSGAII shortest path length : 27.92271115986235
+    NSGAII average path length  : 28.247044650731294
+    NSGAII infeasible rate      : 0.07
+map/map73.txt
+    NSGAII average excution time: 727ms
+    NSGAII shortest path length : 28.700449397432887
+    NSGAII average path length  : 29.04249419043664
+    NSGAII infeasible rate      : 0.49
+map/map74.txt
+    NSGAII average excution time: 808ms
+    NSGAII shortest path length : 31.384533807261988
+    NSGAII average path length  : 33.36282871384246
+    NSGAII infeasible rate      : 0.37
+map/map75.txt
+    NSGAII average excution time: 878ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map76.txt
+    NSGAII average excution time: 743ms
+    NSGAII shortest path length : 27.378005865863916
+    NSGAII average path length  : 27.563568798019137
+    NSGAII infeasible rate      : 0.02
+map/map77.txt
+    NSGAII average excution time: 752ms
+    NSGAII shortest path length : 29.80333004142685
+    NSGAII average path length  : 31.051585156470125
+    NSGAII infeasible rate      : 0.34
+map/map78.txt
+    NSGAII average excution time: 854ms
+    NSGAII shortest path length : 31.86272240540826
+    NSGAII average path length  : 31.86272240540826
+    NSGAII infeasible rate      : 0.99
+map/map79.txt
+    NSGAII average excution time: 792ms
+    NSGAII shortest path length : 31.200921269995835
+    NSGAII average path length  : 32.26002773234006
+    NSGAII infeasible rate      : 0.59
+map/map80.txt
+    NSGAII average excution time: 679ms
+    NSGAII shortest path length : 28.29764283891301
+    NSGAII average path length  : 30.724603135486504
+    NSGAII infeasible rate      : 0.18
+map/map81.txt
+    NSGAII average excution time: 720ms
+    NSGAII shortest path length : 28.829044378227984
+    NSGAII average path length  : 30.14210873530904
+    NSGAII infeasible rate      : 0.19
+map/map82.txt
+    NSGAII average excution time: 809ms
+    NSGAII shortest path length : 1.7976931348623157E308
+    NSGAII average path length  : 0.0
+    NSGAII infeasible rate      : 1.0
+map/map83.txt
+    NSGAII average excution time: 874ms
+    NSGAII shortest path length : 29.547053971018617
+    NSGAII average path length  : 30.71655590350233
+    NSGAII infeasible rate      : 0.69
+map/map84.txt
+    NSGAII average excution time: 752ms
+    NSGAII shortest path length : 27.754073193279815
+    NSGAII average path length  : 29.670244725582553
+    NSGAII infeasible rate      : 0.1
+map/map85.txt
+    NSGAII average excution time: 722ms
+    NSGAII shortest path length : 30.06311538485847
+    NSGAII average path length  : 30.938704645415715
+    NSGAII infeasible rate      : 0.31

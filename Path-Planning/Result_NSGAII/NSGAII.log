@@ -2,19 +2,19 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-04-02T16:45:39</date>
-  <millis>1522658739503</millis>
+  <date>2018-04-03T11:01:47</date>
+  <millis>1522724507910</millis>
   <sequence>0</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
   <class>nsgaii.pathPlanning.core.NSGAII_PathPlanning_main</class>
   <method>main</method>
   <thread>1</thread>
-  <message>Total execution time: 560ms</message>
+  <message>Total execution time: 547ms</message>
 </record>
 <record>
-  <date>2018-04-02T16:45:39</date>
-  <millis>1522658739550</millis>
+  <date>2018-04-03T11:01:47</date>
+  <millis>1522724507941</millis>
   <sequence>1</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Variables values have been writen to file NSGAII_VAR</message>
 </record>
 <record>
-  <date>2018-04-02T16:45:39</date>
-  <millis>1522658739560</millis>
+  <date>2018-04-03T11:01:47</date>
+  <millis>1522724507954</millis>
   <sequence>2</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>

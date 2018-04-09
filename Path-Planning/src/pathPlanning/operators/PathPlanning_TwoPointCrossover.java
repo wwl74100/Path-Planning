@@ -9,9 +9,21 @@ import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 
+/**
+ * 
+ * @author X.K.T
+ * @class PathPlanning_TwoPointCrossover
+ * @brief Two point crossover
+ *
+ */
+
 public class PathPlanning_TwoPointCrossover extends Crossover {
 	private Double crossoverProbability_ = null;
 	
+	/**
+	 * @brief Constructor
+	 * @param parameters: Crossover probability
+	 */
 	public PathPlanning_TwoPointCrossover(HashMap<String, Object> parameters) {
 		super(parameters);
 		if(parameters.get("probability") != null) {
@@ -130,6 +142,14 @@ public class PathPlanning_TwoPointCrossover extends Crossover {
 		return offSpring;
 	}*/
 	
+	/**
+	 * @brief Do crossover
+	 * @param probability: Crossover probability
+	 * @param parent1
+	 * @param parent2
+	 * @return
+	 * @throws JMException
+	 */
 	public Solution[] doCrossover(double probability,
 			  Solution parent1,
 			  Solution parent2) throws JMException {
@@ -159,6 +179,10 @@ public class PathPlanning_TwoPointCrossover extends Crossover {
 		return offSpring;
 	}
 	
+	/**
+	 * @brief Execute the crossover operator
+	 * @param object: Solution to crossover
+	 */
 	public Object execute(Object object) throws JMException {
 		Solution[] parents = (Solution[]) object;
 		Solution[] offSpring;

@@ -2,19 +2,19 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-03-31T19:45:44</date>
-  <millis>1522496744258</millis>
+  <date>2018-04-04T16:05:24</date>
+  <millis>1522829124904</millis>
   <sequence>0</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
   <class>normalGA.pathPlanning.core.Normal_GA_PathPlanning_main</class>
   <method>main</method>
   <thread>1</thread>
-  <message>Total execution time: 636ms</message>
+  <message>Total execution time: 701ms</message>
 </record>
 <record>
-  <date>2018-03-31T19:45:44</date>
-  <millis>1522496744296</millis>
+  <date>2018-04-04T16:05:24</date>
+  <millis>1522829124939</millis>
   <sequence>1</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Variables values have been writen to file VAR</message>
 </record>
 <record>
-  <date>2018-03-31T19:45:44</date>
-  <millis>1522496744316</millis>
+  <date>2018-04-04T16:05:24</date>
+  <millis>1522829124951</millis>
   <sequence>2</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>
@@ -35,8 +35,8 @@
   <message>Fitness values have been writen to file FIT</message>
 </record>
 <record>
-  <date>2018-03-31T19:45:44</date>
-  <millis>1522496744322</millis>
+  <date>2018-04-04T16:05:24</date>
+  <millis>1522829124960</millis>
   <sequence>3</sequence>
   <logger>jMetal</logger>
   <level>INFO</level>

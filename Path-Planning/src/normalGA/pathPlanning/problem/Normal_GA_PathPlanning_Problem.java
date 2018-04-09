@@ -6,7 +6,18 @@ import jmetal.util.JMException;
 import pathPlanning.problem.PathPlanning_Problem;
 import pathPlanning.solution.PathPlanning_SolutionType;
 
+/**
+ * 
+ * @author X.K.T
+ * @class Normal_GA_PathPlanning_Problem
+ * @brief Class representing the Path-Planning problem for Normal GA
+ *
+ */
 public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {	
+	/**
+	 * @brief Constructor
+	 * @param fileName: Map file name
+	 */
 	public Normal_GA_PathPlanning_Problem(String fileName) {
 		super(fileName);
 		getMapInfo(fileName);
@@ -29,8 +40,14 @@ public class Normal_GA_PathPlanning_Problem extends PathPlanning_Problem {
 	    solutionType_ = new PathPlanning_SolutionType(this);
 	}
 
+	/** 
+	 * @brief Evaluates a solution.
+	 * @param solution: The solution to evaluate.
+	 * @throws JMException 
+	 */
 	public void evaluate(Solution solution) throws JMException {
 		double wd = 50, ws = 0, wk = 0, C = 5;
+		//double wd = 50, ws = 10, wk = 5, C = 5;
 		double wl = 5.0, wc = 50.0;
 		
 		Variable[] gen = solution.getDecisionVariables();

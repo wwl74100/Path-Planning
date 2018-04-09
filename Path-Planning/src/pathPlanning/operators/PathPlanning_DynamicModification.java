@@ -8,11 +8,27 @@ import jmetal.core.Variable;
 import jmetal.util.JMException;
 import pathPlanning.problem.PathPlanning_Problem;
 
-public class PathPlanning_GreedyModification extends Operator {
-	public PathPlanning_GreedyModification(HashMap<String, Object> parameters) {
+/**
+ * 
+ * @author X.K.T
+ * @class PathPlanning_DynamicModification 
+ * @brief The modification operator using dynamic programming
+ *
+ */
+public class PathPlanning_DynamicModification extends Operator {
+	/**
+	 * @brief Constructor
+	 * @param parameters: useless
+	 */
+	public PathPlanning_DynamicModification(HashMap<String, Object> parameters) {
 		super(parameters);
 	}
 	
+	/**
+	 * @brief Dynamic programming modification operator
+	 * @param solution: Solution to modify
+	 * @throws JMException
+	 */
 	public void doModification(Solution solution) throws JMException {
 		PathPlanning_Problem problem_ = ((PathPlanning_Problem)(solution.getProblem()));
 		int numberOfVariables_ = solution.numberOfVariables();
@@ -52,6 +68,11 @@ public class PathPlanning_GreedyModification extends Operator {
 		}
 	}
 	
+	/**
+	 * @brief Execute the modification operator
+	 * @param object: Solution to modify
+	 * @return modified solution
+	 */
 	public Object execute(Object object) throws JMException {
 		Solution solution = (Solution)object;
 		doModification(solution);
